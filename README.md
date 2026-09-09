@@ -1,23 +1,22 @@
 # 🚗 TypeScript Tuning
 
-> Simulador de oficina de tuning automotivo, feito em TypeScript puro e executado via terminal.
+> Simulador de tuning de motores automotivos, feito em TypeScript puro e executado via terminal.
 
 ## 📋 Sobre o projeto
 
-**TypeScript Tuning** é uma aplicação de linha de comando onde o usuário escolhe um carro entre opções pré-disponibilizadas e personaliza o veículo adicionando peças de **estética** e de **performance**. Ao final do processo, o sistema exibe um resumo completo do tuning realizado: todas as peças adicionadas, o ganho de potência total e demais estatísticas do carro.
+**TypeScript Tuning** é uma aplicação de linha de comando onde o usuário escolhe um motor entre opções pré-definidas (por exemplo, um 6 cilindros 2JZ) e realiza modificações de **performance** nele, trocando peças como turbina, filtro de ar, entre outras. Ao final do processo, o sistema exibe um resumo completo do tuning realizado: a potência original do motor, todas as peças instaladas e a potência final resultante das modificações.
 
 O projeto foi desenvolvido como trabalho acadêmico, com foco em praticar lógica de programação, orientação a objetos e manipulação de dados em TypeScript, sem uso de frameworks externos.
 
 ## ✨ Funcionalidades
 
-- 🚘 Seleção de um carro entre modelos pré-cadastrados
-- 🎨 Catálogo de peças de **estética** (rodas, adesivos, pintura, etc.)
-- 🏎️ Catálogo de peças de **performance** (motor, escape, turbo, suspensão, etc.)
-- ➕ Adição de peças ao carro selecionado através de menus interativos
+- ⚙️ Seleção de um motor entre modelos pré-definidos (ex: 2JZ 6 cilindros), cada um com suas especificações originais
+- 🏎️ Catálogo de peças de **performance** (turbina, filtro de ar, escapamento, etc.)
+- ➕ Adição de peças ao motor selecionado através de menus interativos
 - 📊 Resumo final do tuning, com:
+  - Potência original do motor
   - Lista de todas as peças instaladas
-  - Ganho total de potência (cavalos/HP)
-  - Outras estatísticas resultantes da customização
+  - Potência final após as modificações (ganho total)
 
 ## 🛠️ Tecnologias
 
@@ -33,8 +32,11 @@ Antes de rodar o projeto, você precisa ter instalado:
 
 ## 🎮 Como usar
 
-1. Ao iniciar o programa, escolha um dos carros disponíveis no menu inicial.
-2. Navegue entre as categorias de peças: **estética** ou **performance**.
-3. Selecione as peças desejadas para adicionar ao carro.
-4. Repita o processo quantas vezes quiser, combinando diferentes peças.
-5. Ao finalizar o tuning, veja o resumo completo: peças instaladas, ganho de potência e estatísticas finais do carro.
+## 🎮 Como usar
+
+1. Ao iniciar o programa, escolha um dos motores pré-definidos no menu inicial (ex: 2JZ 6 cilindros).
+2. Veja as especificações originais do motor selecionado.
+3. Navegue pelo catálogo de peças de performance disponíveis.
+4. Selecione as peças desejadas para instalar no motor.
+5. Repita o processo quantas vezes quiser, combinando diferentes peças.
+6. Ao finalizar o tuning, veja o resumo completo: peças instaladas e potência final do motor.
