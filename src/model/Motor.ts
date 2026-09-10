@@ -1,7 +1,5 @@
 import { TipoPeca } from "./TipoPeca";
 import { Peca } from "./Peca.ts";
-import { PecaOriginal } from "./PecaOriginal.ts";
-
 
 export default class Motor {
     private nome: string;
