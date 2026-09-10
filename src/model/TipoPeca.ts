@@ -8,7 +8,7 @@ export enum TipoPeca {
     Comando = "comando",
     Cabecote = "cabecote",
     Turbina = "turbina",
-    ColetorADM = "ColetorAdmissao",
+    ColetorADM = "coletorAdmissao",
     ColetorESC = "coletorEscape",
     FuelTech = "fueltech"
 }

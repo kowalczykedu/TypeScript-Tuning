@@ -23,6 +23,7 @@ const motorMaverick = new Motor("Ford 302 Windsor (Maverick)", 8, 135, 450, cria
 const motorSupra = new Motor("2JZ-GTE (Supra MK4)", 6, 276, 450, criarPecasOriginais());
 const motorR34 = new Motor("RB26DETT (Skyline R-34)", 6, 286, 430, criarPecasOriginais());
 
+console.log(motorFusca);
 
 export const motoresPreDefinidos: Motor[] = [
     motorUpTsi,
