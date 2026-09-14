@@ -25,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kowalczyk-eduardo/TypeScript-Tuning.git"
+    "url": "git+https://github.com/kowalczykedu/TypeScript-Tuning.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/kowalczyk-eduardo/TypeScript-Tuning/issues"
+    "url": "https://github.com/kowalczykedu/TypeScript-Tuning/issues"
   },
-  "homepage": "https://github.com/kowalczyk-eduardo/TypeScript-Tuning#readme"
+  "homepage": "https://github.com/kowalczykedu/TypeScript-Tuning#readme"
 }
