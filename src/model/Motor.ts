@@ -57,4 +57,18 @@ export default class Motor {
     adicionarLimite(valor: number): void{
         this.limiteAtual += valor;
     }
+
+    recalcular(): void {
+        this.potenciaAtual = this.potenciaBase;
+        this.limiteAtual = this.limiteBase;
+
+        for (const peca of this.pecas.values()) {
+            peca.aplicarEfeito(this);
+        }
+    }
+
+    instalarPeca(tipoPeca: TipoPeca, peca: Peca): void {
+        this.pecas.set(tipoPeca, peca);
+        this.recalcular();
+    }
 }

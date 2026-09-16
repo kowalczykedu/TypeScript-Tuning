@@ -23,8 +23,6 @@ const motorMaverick = new Motor("Ford 302 Windsor (Maverick)", 8, 135, 450, cria
 const motorSupra = new Motor("2JZ-GTE (Supra MK4)", 6, 276, 450, criarPecasOriginais());
 const motorR34 = new Motor("RB26DETT (Skyline R-34)", 6, 286, 430, criarPecasOriginais());
 
-console.log(motorFusca);
-
 export const motoresPreDefinidos: Motor[] = [
     motorUpTsi,
     motorFusca,
@@ -37,12 +35,3 @@ export const motoresPreDefinidos: Motor[] = [
     motorSupra,
     motorR34
 ];
-
-for (const motor of motoresPreDefinidos) {
-    console.log(`\x1b[34m${motor.getNome()}\x1b[0m Potência = \x1b[32m${motor.getPotenciaAtual()}cv\x1b[0m, Limite = \x1b[31m${motor.getLimiteAtual()}cv\x1b[0m`);
-
-    for (const [slot, peca] of motor.getPecas()) {
-        console.log(`\x1b[32m${slot}:\x1b[0m \x1b[33m${peca.getModelo()}\x1b[0m`);
-    }
-    console.log();
-}
