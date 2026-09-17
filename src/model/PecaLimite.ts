@@ -4,8 +4,8 @@ import { Peca } from "./Peca.ts";
 export class PecaLimite extends Peca {
     private percentual: number;
 
-    constructor(nome: string, modelo: string, percentual: number) {
-        super(nome, modelo);
+    constructor(nome: string, modelo: string, descricao: string, percentual: number) {
+        super(nome, modelo, descricao);
         this.percentual = percentual;
     }
 

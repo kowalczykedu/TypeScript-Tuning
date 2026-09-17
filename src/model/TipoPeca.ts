@@ -1,14 +1,14 @@
 export enum TipoPeca {
-    Intake = "intake",
-    Intercooler = "intercooler",
-    Radiador = "radiador",
-    RadiadorOleo = "radiadorOleo",
     Pistao = "pistao",
     Biela = "biela", 
     Comando = "comando",
     Cabecote = "cabecote",
     Turbina = "turbina",
+    FuelTech = "fueltech",
     ColetorADM = "coletorAdmissao",
     ColetorESC = "coletorEscape",
-    FuelTech = "fueltech"
+    Intake = "intake",
+    Intercooler = "intercooler",
+    Radiador = "radiador",
+    RadiadorOleo = "radiadorOleo"
 }

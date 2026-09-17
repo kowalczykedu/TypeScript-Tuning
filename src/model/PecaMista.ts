@@ -6,11 +6,10 @@ export class PecaMista extends Peca {
     private percentualLimite: number;
     
 
-    constructor(nome: string, modelo: string, percentualPotencia: number, percentualLimite: number) {
-        super(nome, modelo);
+    constructor(nome: string, modelo: string, descricao: string, percentualPotencia: number, percentualLimite: number) {
+        super(nome, modelo, descricao);
         this.percentualPotencia = percentualPotencia;
         this.percentualLimite = percentualLimite;
-
     }
 
     aplicarEfeito(motor: Motor): void {
