@@ -400,13 +400,21 @@ catalogo.set(TipoPeca.Intercooler, [
     )
 ]);
 
-catalogo.set(TipoPeca.FuelTech, [
+catalogo.set(TipoPeca.Alimentacao, [
+    new PecaMista(
+        "FT Extremamente Básica",
+        "FuelTech FT300",
+        "Central de injeção programável bastante utilizada em preparações aspiradas de Fusca, oferecendo controle de injeção e ignição para projetos de entrada.",
+        5,
+        10
+    ),
+
     new PecaMista(
         "FT Básica",
         "FuelTech FT450",
         "Injeção programável de entrada para projetos aspirados e turbo leves.",
-        5,
-        10
+        7,
+        12
     ),
 
     new PecaMista(

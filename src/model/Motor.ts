@@ -1,5 +1,6 @@
 import { TipoPeca } from "./TipoPeca";
 import { Peca } from "./Peca.ts";
+import { MotorQuebradoError } from "./exceptions/MotorQuebradoError.ts";
 
 export default class Motor {
     private nome: string;
@@ -74,7 +75,17 @@ export default class Motor {
     }
 
     instalarPeca(tipoPeca: TipoPeca, peca: Peca): void {
+        const potenciaArredondada = Math.round(this.potenciaAtual);
+
         this.pecas.set(tipoPeca, peca);
         this.recalcular();
+
+        if (this.potenciaAtual > this.limiteAtual) {
+            throw new MotorQuebradoError(
+                `${this.nome} quebrou! Potência de ${this.potenciaAtual}cv excede o limite de ${this.limiteAtual}cv`,
+                this,
+                potenciaArredondada
+            );
+        }
     }
 }
