@@ -8,15 +8,17 @@ export default class Motor {
     private limiteBase: number;
     private potenciaAtual: number;
     private limiteAtual: number;
+    private pressaoBase: number;
     private pecas: Map<TipoPeca, Peca>;
 
-    constructor(nome: string, cilindros: number, potenciaBase: number, limiteBase: number, pecas: Map<TipoPeca, Peca>) {
+    constructor(nome: string, cilindros: number, potenciaBase: number, limiteBase: number, pressaoBase: number, pecas: Map<TipoPeca, Peca>) {
         this.nome = nome;
         this.cilindros = cilindros;
         this.potenciaBase = potenciaBase;
         this.potenciaAtual = potenciaBase;
         this.limiteBase = limiteBase;
         this.limiteAtual = limiteBase;
+        this.pressaoBase = pressaoBase
         this.pecas = pecas;
     }
 
@@ -43,6 +45,10 @@ export default class Motor {
 
     getLimiteAtual(): number {
         return this.limiteAtual;
+    }
+
+    getPressaoBase(): number {
+        return this.pressaoBase;
     }
 
     getPecas(): Map<TipoPeca, Peca> {

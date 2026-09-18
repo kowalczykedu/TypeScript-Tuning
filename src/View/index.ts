@@ -1,11 +1,8 @@
 import { TipoPeca } from "../model/TipoPeca";
-import { PecaPotencia } from "../model/PecaPotencia";
-import { PecaLimite } from "../model/PecaLimite";
-import { PecaMista } from "../model/PecaMista";
 import { catalogo } from "../model/pecasData";
 import { motoresPreDefinidos } from "../model/motoresData";
 
-const motor = motoresPreDefinidos[1];
+const motor = motoresPreDefinidos[5];
 const turbinas = catalogo.get(TipoPeca.Turbina)!;
 const intake = catalogo.get(TipoPeca.Intake)!;
 const comando = catalogo.get(TipoPeca.Comando)!;
@@ -21,7 +18,15 @@ const fuelTech = catalogo.get(TipoPeca.FuelTech)!;
 console.log(`\x1b[38;5;33mPotência base =\x1b[0m \x1b[32m${motor.getPotenciaBase()}cv\x1b[0m`); 
 console.log(`\x1b[38;5;33mLimite base =\x1b[0m \x1b[31m${motor.getLimiteAtual()}cv\x1b[0m`); 
 
-motor.instalarPeca(TipoPeca.Turbina, turbinas[3]);
+motor.instalarPeca(TipoPeca.Turbina, turbinas[0]);
+motor.instalarPeca(TipoPeca.Intake, intake[0]);
+motor.instalarPeca(TipoPeca.Intercooler, intercooler[0]);
+motor.instalarPeca(TipoPeca.ColetorESC, coletorEscape[0]);
+motor.instalarPeca(TipoPeca.ColetorADM, coletorAdmissao[0]);
+motor.instalarPeca(TipoPeca.RadiadorOleo, radiadorOleo[0]);
+motor.instalarPeca(TipoPeca.FuelTech, fuelTech[0]); 
+
+/* motor.instalarPeca(TipoPeca.Turbina, turbinas[3]);
 motor.instalarPeca(TipoPeca.Intake, intake[2]);
 motor.instalarPeca(TipoPeca.Comando, comando[2]);
 motor.instalarPeca(TipoPeca.Pistao, pistao[2]);
@@ -31,7 +36,7 @@ motor.instalarPeca(TipoPeca.Intercooler, intercooler[1]);
 motor.instalarPeca(TipoPeca.ColetorESC, coletorEscape[3]);
 motor.instalarPeca(TipoPeca.ColetorADM, coletorAdmissao[1]);
 motor.instalarPeca(TipoPeca.RadiadorOleo, radiadorOleo[1]);
-motor.instalarPeca(TipoPeca.FuelTech, fuelTech[1]); 
+motor.instalarPeca(TipoPeca.FuelTech, fuelTech[1]);  */
 
 /* const motor = motoresPreDefinidos[2];
 const turbinas = catalogo.get(TipoPeca.Turbina)!;

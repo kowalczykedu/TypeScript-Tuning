@@ -3,38 +3,39 @@ import { TipoPeca } from "./TipoPeca";
 import { PecaPotencia } from "./PecaPotencia";
 import { PecaLimite } from "./PecaLimite";
 import { PecaMista } from "./PecaMista";
+import { PecaTurbina } from "./PecaTurbina";
 
 const catalogo = new Map<TipoPeca, Peca[]>();
 export { catalogo };
 
 //Inicio Peças de Potência
 catalogo.set(TipoPeca.Turbina, [
-    new PecaPotencia(
+    new PecaTurbina(
         "Turbina Pequena",
         "Master Power R4449",
         "Turbina nacional de resposta rápida, ideal para projetos de rua com ganho de potência moderado.",
-        10
+        1
     ),
 
-    new PecaPotencia(
+    new PecaTurbina(
         "Turbina Média",
         "Garrett GT2860RS",
         "Modelo esportivo com ótimo equilíbrio entre desempenho e tempo de enchimento da turbina.",
-        28
+        2
     ),
 
-    new PecaPotencia(
+    new PecaTurbina(
         "Turbina Grande",
         "Holset HX35",
         "Turbina de alto fluxo muito utilizada em projetos turbo nacionais de média e alta potência.",
-        48
+        3
     ),
 
-    new PecaPotencia(
+    new PecaTurbina(
         "Turbina Gigante",
         "Holset HX55",
         "Turbina de competição para motores preparados, capaz de entregar potência extrema em altas rotações.",
-        62
+        4
     )
 ]);
 
