@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none">
+  <defs>
+    <radialGradient id="exhGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9E00FF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0F0E17" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pipeHeat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBABFF"/>
+      <stop offset="40%" stop-color="#9E00FF"/>
+      <stop offset="100%" stop-color="#4E4356"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="240" rx="12" fill="#0F0E17"/>
+  <circle cx="160" cy="120" r="100" fill="url(#exhGlow)"/>
+  <!-- Engine Flange on Top -->
+  <rect x="50" y="55" width="220" height="14" rx="3" fill="#201F24" stroke="#FBABFF" stroke-width="2"/>
+  <circle cx="75" cy="62" r="5" fill="#08070B"/>
+  <circle cx="125" cy="62" r="5" fill="#08070B"/>
+  <circle cx="175" cy="62" r="5" fill="#08070B"/>
+  <circle cx="225" cy="62" r="5" fill="#08070B"/>
+  <!-- 4 Equal Length Tubular Exhaust Runners -->
+  <path d="M75 69 C75 110 120 140 150 160" stroke="url(#pipeHeat)" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M125 69 C125 110 135 140 155 160" stroke="url(#pipeHeat)" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M175 69 C175 110 165 140 165 160" stroke="url(#pipeHeat)" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M225 69 C225 110 180 140 170 160" stroke="url(#pipeHeat)" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <!-- Collector Merge & Turbo Flange (T3/T4) -->
+  <path d="M140 160 L180 160 L190 185 L130 185 Z" fill="#2B292E" stroke="#9E00FF" stroke-width="2.5"/>
+  <rect x="125" y="185" width="70" height="10" rx="2" fill="#201F24" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="160" cy="190" r="4" fill="#9E00FF"/>
+  <text x="16" y="222" fill="#9E00FF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" letter-spacing="2">TUBULAR EXHAUST HEADER</text>
+  <text x="215" y="222" fill="#9A8CA2" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">COL. ESCAPE</text>
+</svg>

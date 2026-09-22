@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none">
+  <defs>
+    <radialGradient id="headGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9E00FF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0F0E17" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="headMetal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4E4356"/>
+      <stop offset="50%" stop-color="#2B292E"/>
+      <stop offset="100%" stop-color="#141317"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="240" rx="12" fill="#0F0E17"/>
+  <circle cx="160" cy="120" r="100" fill="url(#headGlow)"/>
+  <!-- DOHC Cylinder Head Monolithic Profile -->
+  <rect x="50" y="70" width="220" height="95" rx="6" fill="url(#headMetal)" stroke="#FBABFF" stroke-width="2"/>
+  <!-- Combustion Chambers & Valves (4 Cylinders) -->
+  <!-- Cylinder 1 -->
+  <circle cx="85" cy="115" r="22" fill="#0F0D12" stroke="#9E00FF" stroke-width="2"/>
+  <circle cx="78" cy="110" r="7" fill="#201F24" stroke="#FFFFFF" stroke-width="1"/>
+  <circle cx="92" cy="110" r="7" fill="#201F24" stroke="#FFFFFF" stroke-width="1"/>
+  <circle cx="85" cy="123" r="6" fill="#201F24" stroke="#9A8CA2" stroke-width="1"/>
+  <!-- Cylinder 2 -->
+  <circle cx="135" cy="115" r="22" fill="#0F0D12" stroke="#9E00FF" stroke-width="2"/>
+  <circle cx="128" cy="110" r="7" fill="#201F24" stroke="#FFFFFF" stroke-width="1"/>
+  <circle cx="142" cy="110" r="7" fill="#201F24" stroke="#FFFFFF" stroke-width="1"/>
+  <circle cx="135" cy="123" r="6" fill="#201F24" stroke="#9A8CA2" stroke-width="1"/>
+  <!-- Cylinder 3 -->
+  <circle cx="185" cy="115" r="22" fill="#0F0D12" stroke="#9E00FF" stroke-width="2"/>
+  <circle cx="178" cy="110" r="7" fill="#201F24" stroke="#FFFFFF" stroke-width="1"/>
+  <circle cx="192" cy="110" r="7" fill="#201F24" stroke="#FFFFFF" stroke-width="1"/>
+  <circle cx="185" cy="123" r="6" fill="#201F24" stroke="#9A8CA2" stroke-width="1"/>
+  <!-- Cylinder 4 -->
+  <circle cx="235" cy="115" r="22" fill="#0F0D12" stroke="#9E00FF" stroke-width="2"/>
+  <circle cx="228" cy="110" r="7" fill="#201F24" stroke="#FFFFFF" stroke-width="1"/>
+  <circle cx="242" cy="110" r="7" fill="#201F24" stroke="#FFFFFF" stroke-width="1"/>
+  <circle cx="235" cy="123" r="6" fill="#201F24" stroke="#9A8CA2" stroke-width="1"/>
+  <!-- Head Stud Holes -->
+  <circle cx="60" cy="80" r="3" fill="#9E00FF"/>
+  <circle cx="110" cy="80" r="3" fill="#9E00FF"/>
+  <circle cx="160" cy="80" r="3" fill="#9E00FF"/>
+  <circle cx="210" cy="80" r="3" fill="#9E00FF"/>
+  <circle cx="260" cy="80" r="3" fill="#9E00FF"/>
+  <text x="16" y="222" fill="#9E00FF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" letter-spacing="2">DOHC PORTED HEAD</text>
+  <text x="230" y="222" fill="#9A8CA2" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">CABEÇOTE</text>
+</svg>

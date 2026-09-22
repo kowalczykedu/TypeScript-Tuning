@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none">
+  <defs>
+    <radialGradient id="camGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9E00FF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0F0E17" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="camShaft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9A8CA2"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#363439"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="240" rx="12" fill="#0F0E17"/>
+  <circle cx="160" cy="120" r="100" fill="url(#camGlow)"/>
+  <!-- Main Camshaft Core -->
+  <rect x="50" y="112" width="220" height="16" rx="3" fill="url(#camShaft)" stroke="#4E4356" stroke-width="1.5"/>
+  <!-- Timing Gear / Cam Gear on Left -->
+  <circle cx="55" cy="120" r="28" fill="#181622" stroke="#9E00FF" stroke-width="3"/>
+  <circle cx="55" cy="120" r="18" fill="#0F0E17" stroke="#FBABFF" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="55" cy="120" r="6" fill="#FFFFFF"/>
+  <!-- Machined Cam Lobes (Eccentric Egg Shapes) -->
+  <!-- Lobe 1 -->
+  <path d="M100 120 C95 100 115 80 120 120 C115 135 95 135 100 120 Z" fill="#363439" stroke="#FBABFF" stroke-width="2"/>
+  <!-- Lobe 2 -->
+  <path d="M135 120 C140 140 120 160 115 120 C120 105 140 105 135 120 Z" fill="#363439" stroke="#9E00FF" stroke-width="2"/>
+  <!-- Bearing Journal 1 -->
+  <rect x="145" y="106" width="16" height="28" rx="2" fill="#FFFFFF" opacity="0.8"/>
+  <!-- Lobe 3 -->
+  <path d="M175 120 C170 100 190 80 195 120 C190 135 170 135 175 120 Z" fill="#363439" stroke="#FBABFF" stroke-width="2"/>
+  <!-- Lobe 4 -->
+  <path d="M210 120 C215 140 195 160 190 120 C195 105 215 105 210 120 Z" fill="#363439" stroke="#9E00FF" stroke-width="2"/>
+  <!-- Bearing Journal 2 -->
+  <rect x="220" y="106" width="16" height="28" rx="2" fill="#FFFFFF" opacity="0.8"/>
+  <!-- Lobe 5 & 6 -->
+  <path d="M245 120 C240 100 260 80 265 120 C260 135 240 135 245 120 Z" fill="#363439" stroke="#FBABFF" stroke-width="2"/>
+  <text x="16" y="222" fill="#9E00FF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" letter-spacing="2">HIGH-LIFT DURATION</text>
+  <text x="240" y="222" fill="#9A8CA2" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">COMANDO</text>
+</svg>

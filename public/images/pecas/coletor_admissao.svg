@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none">
+  <defs>
+    <radialGradient id="admGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9E00FF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0F0E17" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="plenumMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4E4356"/>
+      <stop offset="50%" stop-color="#2B292E"/>
+      <stop offset="100%" stop-color="#141317"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="240" rx="12" fill="#0F0E17"/>
+  <circle cx="160" cy="120" r="100" fill="url(#admGlow)"/>
+  <!-- High-Volume Intake Plenum Chamber -->
+  <path d="M60 75 C60 65 240 65 240 75 L250 110 C250 120 50 120 50 110 Z" fill="url(#plenumMetal)" stroke="#FBABFF" stroke-width="2"/>
+  <!-- Throttle Body Flange on Right -->
+  <ellipse cx="250" cy="92" rx="10" ry="24" fill="#201F24" stroke="#9E00FF" stroke-width="3"/>
+  <circle cx="250" cy="92" r="14" fill="#08070B"/>
+  <circle cx="250" cy="92" r="4" fill="#9E00FF"/>
+  <!-- 4 Velocity Runners going to Head -->
+  <path d="M80 115 L80 170" stroke="#363439" stroke-width="16" stroke-linecap="round"/>
+  <path d="M80 115 L80 170" stroke="#9E00FF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M125 115 L125 170" stroke="#363439" stroke-width="16" stroke-linecap="round"/>
+  <path d="M125 115 L125 170" stroke="#9E00FF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M170 115 L170 170" stroke="#363439" stroke-width="16" stroke-linecap="round"/>
+  <path d="M170 115 L170 170" stroke="#9E00FF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M215 115 L215 170" stroke="#363439" stroke-width="16" stroke-linecap="round"/>
+  <path d="M215 115 L215 170" stroke="#9E00FF" stroke-width="4" stroke-linecap="round"/>
+  <!-- Head Flange at Bottom -->
+  <rect x="65" y="170" width="165" height="12" rx="2" fill="#201F24" stroke="#9A8CA2" stroke-width="1.5"/>
+  <text x="16" y="222" fill="#9E00FF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" letter-spacing="2">SURGE TANK PLENUM</text>
+  <text x="200" y="222" fill="#9A8CA2" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">COL. ADMISSÃO</text>
+</svg>

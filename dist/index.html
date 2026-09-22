@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="TypeScript Tuning — Bancada de Calibração e Simulador de Preparação Automotiva com Precisão Mecânica." />
+    <title>TypeScript Tuning — Oficina & Preparação</title>
+    
+    <!-- Material Symbols & Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS CDN & Nocturne Dynamics Design System Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#141317",
+              "surface-dim": "#141317",
+              "surface-bright": "#3a383d",
+              "surface-container-lowest": "#0f0d12",
+              "surface-container-low": "#1c1b20",
+              "surface-container": "#201f24",
+              "surface-container-high": "#2b292e",
+              "surface-container-highest": "#363439",
+              "surface-variant": "#363439",
+              "on-surface": "#e6e1e7",
+              "on-surface-variant": "#d1c1d9",
+              "inverse-surface": "#e6e1e7",
+              "inverse-on-surface": "#312f35",
+              "outline": "#9a8ca2",
+              "outline-variant": "#4e4356",
+              "surface-tint": "#e0b7ff",
+              "primary": "#e0b7ff",
+              "on-primary": "#4b007d",
+              "primary-container": "#9e00ff",
+              "on-primary-container": "#f7e6ff",
+              "inverse-primary": "#8d00e4",
+              "secondary": "#fbabff",
+              "on-secondary": "#580065",
+              "secondary-container": "#ae05c6",
+              "on-secondary-container": "#ffd8fd",
+              "tertiary": "#dbb8ff",
+              "on-tertiary": "#470083",
+              "tertiary-container": "#8c40dd",
+              "on-tertiary-container": "#f5e6ff",
+              "error": "#ffb4ab",
+              "on-error": "#690005",
+              "error-container": "#93000a",
+              "on-error-container": "#ffdad6",
+              "primary-fixed": "#f1daff",
+              "primary-fixed-dim": "#e0b7ff",
+              "on-primary-fixed": "#2d004f",
+              "on-primary-fixed-variant": "#6b00af",
+              "secondary-fixed": "#ffd6fd",
+              "secondary-fixed-dim": "#fbabff",
+              "on-secondary-fixed": "#36003e",
+              "on-secondary-fixed-variant": "#7c008e",
+              "tertiary-fixed": "#efdbff",
+              "tertiary-fixed-dim": "#dbb8ff",
+              "on-tertiary-fixed": "#2b0052",
+              "on-tertiary-fixed-variant": "#6600b7",
+              "background": "#141317",
+              "on-background": "#e6e1e7"
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem"
+            },
+            spacing: {
+              "space-xs": "0.25rem",
+              "space-sm": "0.5rem",
+              "space-md": "1rem",
+              "space-lg": "1.5rem",
+              "space-xl": "2.5rem",
+              "margin": "3rem",
+              "margin-mobile": "1.25rem",
+              "gutter": "1.5rem",
+              "gutter-mobile": "1rem"
+            },
+            fontFamily: {
+              "display-hero": ["Syne", "sans-serif"],
+              "display-hero-mobile": ["Syne", "sans-serif"],
+              "headline-xl": ["Syne", "sans-serif"],
+              "headline-xl-mobile": ["Syne", "sans-serif"],
+              "headline-lg": ["Syne", "sans-serif"],
+              "headline-md": ["Syne", "sans-serif"],
+              "headline-sm": ["Syne", "sans-serif"],
+              "body-lg": ["Inter", "sans-serif"],
+              "body-md": ["Inter", "sans-serif"],
+              "body-sm": ["Inter", "sans-serif"],
+              "label-lg": ["JetBrains Mono", "monospace"],
+              "label-md": ["JetBrains Mono", "monospace"],
+              "label-sm": ["JetBrains Mono", "monospace"]
+            },
+            fontSize: {
+              "display-hero": ["56px", { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "800" }],
+              "display-hero-mobile": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800" }],
+              "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }],
+              "headline-xl-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }],
+              "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "700" }],
+              "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }],
+              "headline-sm": ["18px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "600" }],
+              "body-lg": ["16px", { lineHeight: "26px", letterSpacing: "-0.005em", fontWeight: "400" }],
+              "body-md": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "400" }],
+              "body-sm": ["12px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "400" }],
+              "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.04em", fontWeight: "500" }],
+              "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "500" }],
+              "label-sm": ["10px", { lineHeight: "14px", letterSpacing: "0.08em", fontWeight: "600" }]
+            }
+          }
+        }
+      };
+    </script>
+    <script type="module" crossorigin src="/assets/index-xlDjR19B.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CSiAdFHB.css">
+  </head>
+  <body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col justify-between">
+    <div id="app" class="min-h-screen flex flex-col justify-between"></div>
+  </body>
+</html>

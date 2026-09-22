@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-tertiary-fixed-variant":"#6600b7","on-primary-container":"#f7e6ff","on-primary":"#4b007d","outline":"#9a8ca2","on-tertiary-fixed":"#2b0052","surface":"#141317","outline-variant":"#4e4356","error":"#ffb4ab","on-error-container":"#ffdad6","inverse-on-surface":"#312f35","surface-container-lowest":"#0f0d12","tertiary-fixed":"#efdbff","on-tertiary":"#470083","secondary-container":"#ae05c6","inverse-surface":"#e6e1e7","tertiary-container":"#8c40dd","on-secondary-fixed":"#36003e","primary-fixed":"#f1daff","tertiary":"#dbb8ff","on-surface":"#e6e1e7","on-error":"#690005","surface-tint":"#e0b7ff","primary-fixed-dim":"#e0b7ff","on-primary-fixed":"#2d004f","secondary":"#fbabff","surface-variant":"#363439","tertiary-fixed-dim":"#dbb8ff","surface-container-highest":"#363439","on-secondary-fixed-variant":"#7c008e","secondary-fixed-dim":"#fbabff","on-background":"#e6e1e7","surface-container":"#201f24","surface-dim":"#141317","on-secondary-container":"#ffd8fd","surface-container-high":"#2b292e","inverse-primary":"#8d00e4","surface-bright":"#3a383d","on-tertiary-container":"#f5e6ff","primary-container":"#9e00ff","on-primary-fixed-variant":"#6b00af","background":"#141317","secondary-fixed":"#ffd6fd","on-surface-variant":"#d1c1d9","primary":"#e0b7ff","surface-container-low":"#1c1b20","error-container":"#93000a","on-secondary":"#580065"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-sm":"0.5rem","space-lg":"1.5rem",margin:"3rem","margin-mobile":"1.25rem","space-xl":"2.5rem","space-xs":"0.25rem","gutter-mobile":"1rem","space-md":"1rem",gutter:"1.5rem"},fontFamily:{"body-md":["Inter"],"body-lg":["Inter"],"display-hero":["Syne"],"label-lg":["JetBrains Mono"],"body-sm":["Inter"],"display-hero-mobile":["Syne"],"headline-xl":["Syne"],"headline-xl-mobile":["Syne"],"headline-md":["Syne"],"label-md":["JetBrains Mono"],"headline-sm":["Syne"],"label-sm":["JetBrains Mono"],"headline-lg":["Syne"]},fontSize:{"body-md":["14px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"400"}],"display-hero":["56px",{lineHeight:"64px",letterSpacing:"-0.03em",fontWeight:"800"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.04em",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"400"}],"display-hero-mobile":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"800"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-xl-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}],"headline-md":["22px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.06em",fontWeight:"500"}],"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"600"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"700"}]}}}}</script></head><body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col justify-between"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-gutter flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="TypeScript Tuning Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UMMy22G_qKYdD9ZMCsLMU9ovTxXjygFh25nmPptydUIIdsoZHgdSbVPyEc_MaAHiOdk7SJIbXZSZmr40YemitYiuPgrMfCTtR-s-HsFrwDqxcocPt-GizlwAt-eSPJ8TRhIyecPaNI1dOjy0vPd889eagHV0wrlYsv8DHhp7vTVEY9Oe7_7PAk_6rJzlUzJ_CFHM4n9j6HzAA1wIGVJpfi6UKYM41w4VCIchZjEdquLk8fR_QkO1LeXA"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight uppercase">TypeScript Tuning</span></div><nav class="flex items-center gap-space-sm" data-active-classes="text-on-surface bg-surface-container-high rounded"><a aria-current="page" class="px-space-md py-space-sm font-label-md uppercase tracking-wider transition-all text-on-surface bg-surface-container-high rounded" data-path="motores" href="#">Motores</a><a class="px-space-md py-space-sm font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="meus-motores" href="#">Meus Motores</a></nav><div class="flex items-center gap-space-md"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface flex-1"><div class="max-w-7xl mx-auto px-gutter py-space-xl"><div class="flex flex-col w-full">
+<!-- Status Live Banner -->
+<div class="w-full bg-surface-container-low px-space-md py-space-xs rounded-lg mb-space-lg flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#fbabff]"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">ECU Slot: Forced Induction Stage 2</span>
+<span class="text-outline-variant font-label-sm">/</span>
+<span class="font-label-sm text-label-sm text-primary tracking-wide">Toyota 2JZ-GTE VVT-i Platform</span>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm text-outline">
+<span>SYNC: CALIBRATED</span>
+<span class="text-secondary-fixed-dim">SESSION ID #TK-9924</span>
+</div>
+</div>
+<!-- Primary Sub-Bar Navigation -->
+<nav class="w-full bg-surface-container-low p-space-md rounded-xl mb-space-xl flex flex-wrap items-center justify-between gap-space-md shadow-md">
+<div class="flex items-center gap-space-md">
+<a class="group flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-all text-on-surface font-label-md text-label-md tracking-wider uppercase" href="#">
+<span class="material-symbols-outlined text-[18px] text-primary group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+        Voltar para o Motor
+      </a>
+<div class="h-6 w-px bg-surface-variant"></div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span>MAPA:</span>
+<span class="text-on-surface font-semibold">STG2-REV-D</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all font-label-md text-label-md tracking-wider uppercase shadow-sm" id="open-stats-btn">
+<span class="material-symbols-outlined text-[18px] text-primary">query_stats</span>
+        Estatísticas
+      </button>
+<button class="flex items-center gap-space-xs px-space-lg py-space-sm rounded-lg bg-gradient-to-r from-tertiary-container via-primary-container to-secondary-container hover:brightness-110 text-white font-headline-sm text-headline-sm tracking-wide uppercase transition-all shadow-[0_4px_24px_rgba(158,0,255,0.3)]" id="open-finish-modal-btn">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+        Finalizar Tuning
+      </button>
+<button class="px-space-md py-space-sm rounded-lg bg-surface-container-lowest hover:bg-error-container/30 text-error font-label-md text-label-md tracking-wider uppercase transition-all">
+        Sair
+      </button>
+</div>
+</nav>
+<!-- Slot Header Identifier -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
+<div>
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Módulo de Indução Forçada</span>
+<span class="text-outline-variant font-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-outline tracking-wider">Slot 03 de 08</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight uppercase">Catálogo — Turbina</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+        Peça atual: <span class="text-primary font-semibold">Garrett GT2860RS</span> <span class="font-label-sm text-label-sm text-secondary-fixed-dim bg-surface-container px-space-xs py-0.5 rounded ml-space-xs">Customizada</span>
+</p>
+</div>
+<!-- Micro Spec Strip -->
+<div class="flex items-center gap-space-lg bg-surface-container-lowest px-space-lg py-space-md rounded-xl">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Pressão Alvo</span>
+<span class="font-headline-md text-headline-md text-on-surface tracking-tight">1.35 <span class="text-body-sm font-label-md text-on-surface-variant">BAR</span></span>
+</div>
+<div class="h-8 w-px bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Spool-up Time</span>
+<span class="font-headline-md text-headline-md text-primary tracking-tight">3,200 <span class="text-body-sm font-label-md text-on-surface-variant">RPM</span></span>
+</div>
+<div class="h-8 w-px bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Tolerância Térmica</span>
+<span class="font-headline-md text-headline-md text-on-surface tracking-tight">920° <span class="text-body-sm font-label-md text-on-surface-variant">EGT</span></span>
+</div>
+</div>
+</div>
+<!-- Main Split Architecture: Catalog on Left, Live Telemetry Visualizer on Right -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg mb-space-xl">
+<!-- Left Column: Pure Clean Catalog -->
+<div class="xl:col-span-8 flex flex-col gap-space-md">
+<!-- Card 1: Original CT12B -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container rounded-xl p-space-lg transition-all duration-300 shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-md">
+<div class="flex gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-outline group-hover:text-primary transition-colors shrink-0">
+<span class="material-symbols-outlined text-[28px]">swap_calls</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-outline">Setup Sequencial OEM</span>
+<span class="text-outline-variant font-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-outline-variant">Ceramic Impeller</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Turbina Original CT12B (Twin Setup)</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs max-w-xl">
+                Configuração sequencial original de fábrica desenvolvida para respostas lineares em baixos regimes com lag imperceptível.
+              </p>
+</div>
+</div>
+<!-- Dyno Output Pill -->
+<div class="flex md:flex-col items-end justify-between shrink-0 bg-surface-container-lowest px-space-md py-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Potência Estimada</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">276 <span class="text-label-sm font-label-sm text-on-surface-variant font-normal">CV</span></span>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">Ganho: 0 cv (Base)</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-sm">
+<div class="flex items-center gap-space-md text-outline font-label-sm text-label-sm">
+<span>A/R: 0.48</span>
+<span>FLUXO: 32 LB/MIN</span>
+<span>LAG: 0.12S</span>
+</div>
+<button class="px-space-lg py-space-sm rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md tracking-wider uppercase transition-all shadow-sm">
+            Instalar
+          </button>
+</div>
+</div>
+<!-- Card 2: Currently Installed (Garrett GT2860RS) -->
+<div class="relative bg-surface-container rounded-xl p-space-lg shadow-[0_8px_32px_-4px_rgba(158,0,255,0.18)] flex flex-col justify-between gap-space-md">
+<!-- Installed Accent Bar -->
+<div class="absolute left-0 top-3 bottom-3 w-1 bg-secondary rounded-r"></div>
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-md pl-space-xs">
+<div class="flex gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">mode_fan</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-secondary">Instalada Atualmente</span>
+<span class="text-outline-variant font-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dual Ball Bearing</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Turbina Média Garrett GT2860RS</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs max-w-xl">
+                Rolamento cerâmico duplo com carcaça T25 otimizada. Balanço milimétrico entre pressão rápida de sobrealimentação e médias rotações vigorosas.
+              </p>
+</div>
+</div>
+<!-- Dyno Output Pill -->
+<div class="flex md:flex-col items-end justify-between shrink-0 bg-surface-container-lowest px-space-md py-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Potência Estimada</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">320 <span class="text-label-sm font-label-sm text-on-surface-variant font-normal">CV</span></span>
+<span class="font-label-sm text-label-sm text-primary mt-0.5">+44 cv ganho líquido</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-sm pl-space-xs">
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+<span>A/R: 0.64</span>
+<span>FLUXO: 44 LB/MIN</span>
+<span>LAG: 0.38S</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="px-space-md py-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md tracking-wider uppercase flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+              Instalada
+            </span>
+</div>
+</div>
+</div>
+<!-- Card 3: Precision 6266 Gen 2 -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container rounded-xl p-space-lg transition-all duration-300 shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-md">
+<div class="flex gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-outline group-hover:text-primary transition-colors shrink-0">
+<span class="material-symbols-outlined text-[28px]">speed</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-outline">High-Flow Billet Unit</span>
+<span class="text-outline-variant font-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-outline-variant">CEA Compressor</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Turbina Grande Precision 6266 Gen 2</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs max-w-xl">
+                Rotor billet de fluxo massivo para altas potências no bloco 2JZ. Desperta toda a capacidade volumétrica na faixa de 4,500 a 7,800 RPM.
+              </p>
+</div>
+</div>
+<!-- Dyno Output Pill -->
+<div class="flex md:flex-col items-end justify-between shrink-0 bg-surface-container-lowest px-space-md py-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Potência Estimada</span>
+<span class="font-headline-md text-headline-md text-secondary font-bold">420 <span class="text-label-sm font-label-sm text-on-surface-variant font-normal">CV</span></span>
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">+144 cv ganho</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-sm">
+<div class="flex items-center gap-space-md text-outline font-label-sm text-label-sm">
+<span>A/R: 0.82</span>
+<span>FLUXO: 68 LB/MIN</span>
+<span>LAG: 0.76S</span>
+</div>
+<button class="px-space-lg py-space-sm rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md tracking-wider uppercase transition-all shadow-sm">
+            Instalar
+          </button>
+</div>
+</div>
+<!-- Card 4: BorgWarner S400SX (Risk / Warning State) -->
+<div class="relative bg-surface-container-low rounded-xl p-space-lg transition-all duration-300 shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-md">
+<div class="flex gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-error-container/30 flex items-center justify-center text-error shrink-0">
+<span class="material-symbols-outlined text-[28px]">warning</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-error">Limite Crítico Excedido</span>
+<span class="text-outline-variant font-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-error">Risco de Quebra</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Turbina Monstro BorgWarner S400SX</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs max-w-xl">
+                Carcaça de alta capacidade recomendada estritamente com bielas e pistões forjados. Sobrecarga estrutural garantida nos componentes internos de fábrica.
+              </p>
+</div>
+</div>
+<!-- Dyno Output Pill -->
+<div class="flex md:flex-col items-end justify-between shrink-0 bg-error-container/20 px-space-md py-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-error uppercase tracking-wider">Potência Estimada</span>
+<span class="font-headline-md text-headline-md text-error font-bold">520 <span class="text-label-sm font-label-sm text-error font-normal">CV</span></span>
+<span class="font-label-sm text-label-sm text-error mt-0.5">Excede limite: 450 cv</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-sm">
+<div class="flex items-center gap-space-md text-error/80 font-label-sm text-label-sm">
+<span>A/R: 1.10</span>
+<span>FLUXO: 92 LB/MIN</span>
+<span class="text-error font-semibold">ALERTA: FADIGA DE BIELA</span>
+</div>
+<button class="px-space-lg py-space-sm rounded-lg bg-error-container hover:brightness-120 text-on-error-container font-label-md text-label-md tracking-wider uppercase transition-all shadow-[0_4px_16px_rgba(239,68,68,0.25)] flex items-center gap-1.5" id="trigger-broken-engine-btn">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+            Testar Limite
+          </button>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual Stage & Dyno Curve Telemetry -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Component Micro Visualizer -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Inspeção Mecânica</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">T25 Ceramic Bearing</span>
+</div>
+<div class="relative w-full h-44 rounded-lg overflow-hidden bg-surface-container-lowest flex items-center justify-center mb-space-md">
+<img class="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:opacity-100 hover:mix-blend-normal transition-all duration-500" data-alt="High precision close-up shot of a stainless steel dual ball bearing turbocharger compressor housing inside a dimly lit modern performance automotive workshop, illuminated with razor sharp violet and ultraviolet neon light rays, hyper minimalist studio automotive engineering photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUGtPs0TBysaPZdTFWTDlIqn1wHeZD23u6BSQzkYACh0hUqcrQ0zFX1EvN8Rkto9ZRsZfqj5H6HRNlQnwLsJJp_fyvUoePrvKTqygq3gxShtmPBkE0bBK_Jh_MAjugsODJ8WGoOXV_eXEZ1e2AdVi5Oj6wRgejwteVKiXgv6WtK4KsNL0i-YS8lBc7Z6RywUepKOQK8ovl8z-07Evl6xZLBNVuChTk4z_Smf0YV_l7VMDBSeS52ZQ"/>
+<div class="absolute bottom-2 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-1 rounded text-outline font-label-sm text-label-sm">
+            GT2860RS — MAP #02
+          </div>
+</div>
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Pressão de Overboost</span>
+<span class="text-on-surface font-medium">1.42 bar @ 4,800 RPM</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full w-[72%]"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm pt-space-xs">
+<span class="text-on-surface-variant">Eficiência Volumétrica</span>
+<span class="text-on-surface font-medium">88.4%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full w-[88%]"></div>
+</div>
+</div>
+</div>
+<!-- Interactive Dyno Vector Chart -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Curva Dinamométrica</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">276cv → 320cv</span>
+</div>
+<!-- Inline SVG Dyno Graph (Sub 2KB) -->
+<div class="w-full h-44 py-space-xs">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 300 130">
+<defs>
+<lineargradient id="dynoGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#9e00ff" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#9e00ff" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Gridlines -->
+<line stroke="#363439" stroke-dasharray="2,4" stroke-width="0.75" x1="0" x2="300" y1="20" y2="20"></line>
+<line stroke="#363439" stroke-dasharray="2,4" stroke-width="0.75" x1="0" x2="300" y1="60" y2="60"></line>
+<line stroke="#363439" stroke-dasharray="2,4" stroke-width="0.75" x1="0" x2="300" y1="100" y2="100"></line>
+<!-- OEM Baseline (CT12B) -->
+<path d="M 10 120 Q 80 95 140 75 T 290 65" fill="none" stroke="#64748B" stroke-dasharray="3,3" stroke-width="1.5"></path>
+<!-- Shaded Area Current Map -->
+<path d="M 10 120 Q 90 85 150 45 T 290 30 L 290 125 L 10 125 Z" fill="url(#dynoGrad)"></path>
+<!-- Current Map (GT2860RS) -->
+<path d="M 10 120 Q 90 85 150 45 T 290 30" fill="none" stroke="#e0b7ff" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Highlight Peak Dot -->
+<circle cx="290" cy="30" fill="#fbabff" r="4"></circle>
+</svg>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm pt-space-xs">
+<span>2000 RPM</span>
+<span>4500 RPM</span>
+<span>7200 RPM</span>
+</div>
+<div class="flex items-center justify-between mt-space-md pt-space-sm bg-surface-container-lowest p-space-sm rounded-lg">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="w-3 h-1 bg-outline rounded-full"></span>
+<span class="text-on-surface-variant">Base OEM</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="w-3 h-1 bg-primary rounded-full"></span>
+<span class="text-primary font-semibold">Mapa Atual (320 cv)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- DEMO CONTROL STRIP: Access the 3 essential states requested -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md mb-space-xl flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">layers</span>
+<span class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider">Demonstração de Estados &amp; Modais do Sistema:</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="px-space-md py-space-xs rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm uppercase tracking-wider" id="strip-btn-stats">
+        Painel de Estatísticas
+      </button>
+<button class="px-space-md py-space-xs rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider" id="strip-btn-finalize">
+        Modal Finalizar
+      </button>
+<button class="px-space-md py-space-xs rounded bg-error-container/30 hover:bg-error-container text-error font-label-sm text-label-sm uppercase tracking-wider" id="strip-btn-blown">
+        Alerta Motor Quebrado
+      </button>
+</div>
+</div>
+<!-- ======================================================== -->
+<!-- 4.1 PAINEL FLUTUANTE LATERAL: "VER ESTATÍSTICAS"        -->
+<!-- ======================================================== -->
+<div class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-surface-container-lowest shadow-2xl p-space-xl flex flex-col justify-between transform translate-x-full transition-transform duration-300" id="stats-drawer">
+<div>
+<div class="flex items-center justify-between pb-space-md mb-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">analytics</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface tracking-tight uppercase">Estatísticas do Motor</h3>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" id="close-stats-btn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Engine Platform Info -->
+<div class="bg-surface-container-low p-space-md rounded-xl mb-space-lg">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Trem de Força</span>
+<div class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Toyota 2JZ-GTE Non-VVTi</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3.0L Inline-6 • Bloco de Ferro Fundido</span>
+</div>
+<!-- Metrics Grid -->
+<div class="grid grid-cols-2 gap-space-sm mb-space-lg">
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Potência Atual</span>
+<span class="font-headline-lg text-headline-lg text-primary font-bold mt-space-xs">320 <span class="font-label-sm text-label-sm font-normal text-on-surface-variant">cv</span></span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim mt-1">+44 cv sob base</span>
+</div>
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Limite Seguro</span>
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold mt-space-xs">450 <span class="font-label-sm text-label-sm font-normal text-on-surface-variant">cv</span></span>
+<span class="font-label-sm text-label-sm text-outline mt-1">Margem: 130 cv</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Potência Base</span>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold mt-space-xs">276 <span class="font-label-sm text-label-sm font-normal text-outline">cv</span></span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Limite Base</span>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold mt-space-xs">450 <span class="font-label-sm text-label-sm font-normal text-outline">cv</span></span>
+</div>
+</div>
+<!-- Power Bar Progress -->
+<div class="bg-surface-container-low p-space-md rounded-xl mb-space-lg">
+<div class="flex justify-between items-center font-label-sm text-label-sm mb-space-xs">
+<span class="text-on-surface-variant">Carga Estrutural Atual</span>
+<span class="text-primary font-bold">71.1% (320 / 450 cv)</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-tertiary via-primary to-secondary h-full rounded-full w-[71.1%]"></div>
+</div>
+</div>
+<!-- Installed Components List -->
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-space-sm">Peças Instaladas na Sessão</span>
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between p-space-sm bg-surface-container rounded-lg font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Turbina:</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Garrett GT2860RS</span>
+</div>
+<div class="flex items-center justify-between p-space-sm bg-surface-container rounded-lg font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Intake:</span>
+<span class="font-label-md text-label-md text-on-surface">Duplo Cônico High-Flow</span>
+</div>
+<div class="flex items-center justify-between p-space-sm bg-surface-container rounded-lg font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Intercooler:</span>
+<span class="font-label-md text-label-md text-on-surface">600x300 Bar &amp; Plate</span>
+</div>
+<div class="flex items-center justify-between p-space-sm bg-surface-container rounded-lg font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Alimentação:</span>
+<span class="font-label-md text-label-md text-on-surface">Bicos 850cc Top Feed</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-space-md">
+<button class="w-full py-space-sm bg-surface-container hover:bg-surface-container-high rounded-lg font-label-md text-label-md text-on-surface tracking-wider uppercase transition-colors" id="close-stats-btn-bottom">
+        Fechar Painel
+      </button>
+</div>
+</div>
+<!-- Backdrop for drawer/modals -->
+<div class="fixed inset-0 z-40 bg-surface-container-lowest/80 backdrop-blur-md hidden transition-opacity" id="modal-backdrop"></div>
+<!-- ======================================================== -->
+<!-- 4.2 MODAL: "FINALIZAR PREPARAÇÃO?"                      -->
+<!-- ======================================================== -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-space-md hidden pointer-events-none" id="finish-modal">
+<div class="bg-surface-container-low max-w-lg w-full rounded-xl p-space-xl shadow-[0_16px_48px_rgba(0,0,0,0.75)] pointer-events-auto flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">save</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">Finalizar Preparação?</h2>
+</div>
+<button class="text-outline hover:text-on-surface" id="close-finish-modal-btn">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Vehicle Overview Plate -->
+<div class="bg-surface-container p-space-md rounded-xl">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Revisão de Calibração</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">STAGE 2 APPLIED</span>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface">2JZ-GTE — Toyota Supra MK4</div>
+<!-- Delta comparisons -->
+<div class="grid grid-cols-2 gap-space-md mt-space-md pt-space-md bg-surface-container-lowest p-space-sm rounded-lg">
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Potência Base → Final</span>
+<div class="font-headline-sm text-headline-sm text-on-surface mt-0.5">
+              276 cv <span class="text-primary font-bold">→ 320 cv</span>
+</div>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Limite Base → Final</span>
+<div class="font-headline-sm text-headline-sm text-on-surface mt-0.5">
+              450 cv <span class="text-on-surface-variant font-bold">→ 450 cv</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Modifications summary -->
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-space-xs">Resumo das Modificações Efetuadas:</span>
+<ul class="space-y-1 font-body-sm text-body-sm text-on-surface-variant bg-surface-container-lowest p-space-md rounded-lg">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[14px]">check</span>
+            Substituição da turbina gêmea CT12B por Garrett GT2860RS Single
+          </li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[14px]">check</span>
+            Intake Duplo Cônico de 3 polegadas com dutos polidos
+          </li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[14px]">check</span>
+            Intercooler frontal de alumínio brasado 600x300
+          </li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[14px]">check</span>
+            Bicos injetores de alta impedância 850cc
+          </li>
+</ul>
+</div>
+<!-- Persistence Notice -->
+<div class="p-space-sm bg-surface-container rounded-lg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Esta configuração será gravada na ECU e salva permanentemente em <span class="text-on-surface font-semibold">Meus Motores</span>.
+        </p>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md uppercase tracking-wider transition-colors" id="cancel-finish-modal-btn">
+          Voltar
+        </button>
+<button class="px-space-lg py-space-sm rounded-lg bg-gradient-to-r from-secondary-container to-primary-container hover:brightness-110 text-white font-headline-sm text-headline-sm uppercase tracking-wider transition-all shadow-[0_4px_20px_rgba(174,5,198,0.35)]" id="confirm-save-btn">
+          Confirmar e Salvar
+        </button>
+</div>
+</div>
+</div>
+<!-- ======================================================== -->
+<!-- 4.3 ALERTA / CARD DE ESTADO: "MOTOR QUEBRADO"           -->
+<!-- ======================================================== -->
+<div class="relative w-full rounded-2xl bg-[#08070B] p-space-xl shadow-[0_8px_36px_rgba(239,68,68,0.22)] overflow-hidden transition-all duration-300" id="broken-engine-card">
+<!-- Crimson Photonic Glow Backdrop Layer -->
+<div class="absolute -top-24 -right-24 w-80 h-80 bg-error-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg">
+<div class="flex items-start gap-space-lg">
+<!-- Hazard Hexagon Icon Box -->
+<div class="w-16 h-16 rounded-xl bg-error-container/30 flex items-center justify-center text-error shadow-[0_0_24px_rgba(239,68,68,0.4)] shrink-0">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">error</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="px-space-sm py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm uppercase font-bold tracking-widest">
+              Falha Catastrófica
+            </span>
+<span class="text-error font-label-sm text-label-sm uppercase tracking-wider">ECU Engine Cut: Trip Code #E-520</span>
+</div>
+<h3 class="font-headline-xl text-headline-xl text-error uppercase tracking-tight">Motor Quebrado</h3>
+<p class="font-body-lg text-body-lg text-on-surface mt-space-xs">
+            A potência atual ultrapassou o limite seguro do motor.
+          </p>
+<div class="flex flex-wrap items-center gap-space-md mt-space-md font-label-md text-label-md">
+<div class="bg-surface-container-lowest/80 px-space-md py-space-xs rounded text-error font-semibold">
+              Potência Atual Registrada: 470 cv
+            </div>
+<div class="bg-surface-container-lowest/80 px-space-md py-space-xs rounded text-outline">
+              Limite Seguro do Bloco: 450 cv
+            </div>
+<div class="text-error/80 font-label-sm text-label-sm">
+              Sobrecarga mecânica: +20 cv além do limite de ruptura
+            </div>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="shrink-0 w-full md:w-auto">
+<button class="w-full md:w-auto px-space-xl py-space-md rounded-xl bg-error-container hover:bg-error hover:text-on-error text-on-error-container font-headline-sm text-headline-sm uppercase tracking-wider transition-all shadow-[0_0_24px_rgba(147,0,10,0.6)] flex items-center justify-center gap-space-xs" id="reset-broken-engine-btn">
+<span class="material-symbols-outlined text-[20px]">restart_alt</span>
+          Voltar e Reajustar
+        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Interaction Behavior -->
+<script>
+  (function() {
+    const statsDrawer = document.getElementById('stats-drawer');
+    const finishModal = document.getElementById('finish-modal');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    const brokenCard = document.getElementById('broken-engine-card');
+
+    const openStatsBtn = document.getElementById('open-stats-btn');
+    const closeStatsBtn = document.getElementById('close-stats-btn');
+    const closeStatsBtnBottom = document.getElementById('close-stats-btn-bottom');
+    const stripBtnStats = document.getElementById('strip-btn-stats');
+
+    const openFinishModalBtn = document.getElementById('open-finish-modal-btn');
+    const closeFinishModalBtn = document.getElementById('close-finish-modal-btn');
+    const cancelFinishModalBtn = document.getElementById('cancel-finish-modal-btn');
+    const stripBtnFinalize = document.getElementById('strip-btn-finalize');
+    const confirmSaveBtn = document.getElementById('confirm-save-btn');
+
+    const triggerBrokenBtn = document.getElementById('trigger-broken-engine-btn');
+    const stripBtnBlown = document.getElementById('strip-btn-blown');
+    const resetBrokenBtn = document.getElementById('reset-broken-engine-btn');
+
+    // Stats Drawer
+    function openStats() {
+      statsDrawer.classList.remove('translate-x-full');
+      modalBackdrop.classList.remove('hidden');
+    }
+    function closeStats() {
+      statsDrawer.classList.add('translate-x-full');
+      if (finishModal.classList.contains('hidden')) {
+        modalBackdrop.classList.add('hidden');
+      }
+    }
+
+    openStatsBtn?.addEventListener('click', openStats);
+    stripBtnStats?.addEventListener('click', openStats);
+    closeStatsBtn?.addEventListener('click', closeStats);
+    closeStatsBtnBottom?.addEventListener('click', closeStats);
+
+    // Finish Modal
+    function openFinish() {
+      finishModal.classList.remove('hidden');
+      modalBackdrop.classList.remove('hidden');
+    }
+    function closeFinish() {
+      finishModal.classList.add('hidden');
+      if (statsDrawer.classList.contains('translate-x-full')) {
+        modalBackdrop.classList.add('hidden');
+      }
+    }
+
+    openFinishModalBtn?.addEventListener('click', openFinish);
+    stripBtnFinalize?.addEventListener('click', openFinish);
+    closeFinishModalBtn?.addEventListener('click', closeFinish);
+    cancelFinishModalBtn?.addEventListener('click', closeFinish);
+
+    confirmSaveBtn?.addEventListener('click', () => {
+      confirmSaveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done_all</span> MAPA SALVO!';
+      setTimeout(() => {
+        closeFinish();
+        confirmSaveBtn.innerHTML = 'Confirmar e Salvar';
+      }, 900);
+    });
+
+    // Broken Engine Scroll / Focus Demo
+    function highlightBroken() {
+      brokenCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      brokenCard.classList.add('scale-[1.01]');
+      setTimeout(() => {
+        brokenCard.classList.remove('scale-[1.01]');
+      }, 400);
+    }
+
+    triggerBrokenBtn?.addEventListener('click', highlightBroken);
+    stripBtnBlown?.addEventListener('click', highlightBroken);
+
+    resetBrokenBtn?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Backdrop Click
+    modalBackdrop?.addEventListener('click', () => {
+      closeStats();
+      closeFinish();
+    });
+  })();
+</script></div></main><footer class="w-full bg-surface-container-lowest py-space-lg"><div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-sm text-center md:text-left"><span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">TypeScript Tuning — Preparação Automotiva</span><span class="font-label-sm text-label-sm text-outline">ECU Map Calibration &amp; Engineering</span></div></footer></body></html>

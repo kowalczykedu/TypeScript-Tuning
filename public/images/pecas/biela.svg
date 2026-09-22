@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none">
+  <defs>
+    <radialGradient id="rodGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9E00FF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0F0E17" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rodMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="40%" stop-color="#9A8CA2"/>
+      <stop offset="100%" stop-color="#181622"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="240" rx="12" fill="#0F0E17"/>
+  <circle cx="160" cy="120" r="100" fill="url(#rodGlow)"/>
+  <!-- H-Beam Connecting Rod Profile -->
+  <!-- Small End (Piston Pin End) -->
+  <circle cx="160" cy="55" r="24" fill="#201F24" stroke="url(#rodMetal)" stroke-width="4"/>
+  <circle cx="160" cy="55" r="13" fill="#08070B" stroke="#9E00FF" stroke-width="2"/>
+  <!-- Rod Beam (H-Beam Flanges) -->
+  <path d="M150 78 L146 145 L132 165 L188 165 L174 145 L170 78 Z" fill="url(#rodMetal)" stroke="#FBABFF" stroke-width="2"/>
+  <!-- Center Recess of H-Beam -->
+  <rect x="154" y="85" width="12" height="60" rx="2" fill="#141317" stroke="#9E00FF" stroke-width="1.5"/>
+  <!-- Big End (Crankshaft Journal End) -->
+  <circle cx="160" cy="180" r="32" fill="#201F24" stroke="url(#rodMetal)" stroke-width="4"/>
+  <circle cx="160" cy="180" r="20" fill="#08070B" stroke="#9E00FF" stroke-width="2.5"/>
+  <!-- ARP Rod Bolts -->
+  <circle cx="132" cy="178" r="4" fill="#FFFFFF"/>
+  <circle cx="188" cy="178" r="4" fill="#FFFFFF"/>
+  <text x="16" y="222" fill="#9E00FF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" letter-spacing="2">H-BEAM FORGED ROD</text>
+  <text x="250" y="222" fill="#9A8CA2" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">BIELA</text>
+</svg>
