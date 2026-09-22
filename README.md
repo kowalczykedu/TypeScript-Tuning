@@ -180,6 +180,12 @@ npm install -g tsx
 tsx src/index.ts
 ```
 
+E para ver a porta em que o projeto está rodando, use o comando:
+
+```bash
+npm run dev
+```
+
 ## 🔜 Próximos passos
 
 - [ ] `EscolhaInvalidaError` (validação de entrada nos menus)
