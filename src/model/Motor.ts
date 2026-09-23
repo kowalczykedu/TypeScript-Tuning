@@ -1,8 +1,9 @@
+import { Identificavel } from "./Identificavel.ts";
 import { TipoPeca } from "./TipoPeca";
 import { Peca } from "./Peca.ts";
 import { MotorQuebradoError } from "./exceptions/MotorQuebradoError.ts";
 
-export default class Motor {
+export default class Motor implements Identificavel {
     private nome: string;
     private cilindros: number;
     private potenciaBase: number;

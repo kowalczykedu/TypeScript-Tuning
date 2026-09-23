@@ -1,6 +1,7 @@
+import { Identificavel } from "./Identificavel";
 import type Motor from "./Motor";
 
-export abstract class Peca {
+export abstract class Peca implements Identificavel {
     protected readonly nome: string;
     protected readonly modelo: string;
     protected readonly descricao: string;
