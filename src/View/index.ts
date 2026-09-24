@@ -19,11 +19,12 @@ const alimentacao = catalogo.get(TipoPeca.Alimentacao)!;
 console.log(`\x1b[38;5;33mPotência base =\x1b[0m \x1b[32m${motor.getPotenciaBase()}cv\x1b[0m`); 
 console.log(`\x1b[38;5;33mLimite base =\x1b[0m \x1b[31m${motor.getLimiteAtual()}cv\x1b[0m`); 
 
+/* motor.instalarPeca(TipoPeca.Pistao, pistao[3]);
 motor.instalarPeca(TipoPeca.ColetorESC, coletorEscape[1]);
 motor.instalarPeca(TipoPeca.ColetorADM, coletorAdmissao[1]);
-motor.instalarPeca(TipoPeca.Alimentacao, alimentacao[0]); 
+motor.instalarPeca(TipoPeca.Alimentacao, alimentacao[0]);  */
 
-try {
+/* try {
     motor.instalarPeca(TipoPeca.Turbina, turbinas[3]);;
     motor.instalarPeca(TipoPeca.Comando, comando[3]);;
 
@@ -35,7 +36,7 @@ try {
     } else {
         throw erro;
     }
-}
+} */
 
 /* motor.instalarPeca(TipoPeca.Turbina, turbinas[3]);
 motor.instalarPeca(TipoPeca.Intake, intake[2]);
@@ -85,10 +86,11 @@ for (const [slot, peca] of motor.getPecas()) {
     } else if (peca.getModelo() === "Não Instalada") {
         console.log(`\x1b[32m${slot}:\x1b[0m \x1b[38;5;203m${peca.getModelo()}\x1b[0m`);
     } else {
-        console.log(`\x1b[32m${slot}:\x1b[0m \x1b[1;38;5;208m${peca.getModelo()}\x1b[0m`);
-
+        console.log(`\x1b[32m${slot}:\x1b[0m \x1b[1;38;5;208m${peca.getModelo()}\x1b[0m e ${peca.getDetalhesTecnicos()}`);
     }
 }
+
+console.log(motor.getPressaoBase());
 /* for (const motor of motoresPreDefinidos) {
     console.log(`\x1b[34m${motor.getNome()}\x1b[0m Potência = \x1b[32m${motor.getPotenciaAtual()}cv\x1b[0m, Limite = \x1b[31m${motor.getLimiteAtual()}cv\x1b[0m`);
 

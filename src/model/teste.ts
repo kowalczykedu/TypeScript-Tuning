@@ -10,4 +10,4 @@ function exibirMenu(itens: Identificavel[]): void {
 }
 
 exibirMenu(motoresPreDefinidos);
-exibirMenu(catalogo.get(TipoPeca.Turbina)!); 
+exibirMenu(catalogo.get(TipoPeca.Intake)!); 

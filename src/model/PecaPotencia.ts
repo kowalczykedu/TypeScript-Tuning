@@ -9,6 +9,10 @@ export class PecaPotencia extends Peca {
         this.percentual = percentual;
     }
 
+    getDetalhesTecnicos(): string {
+        return `+${this.percentual}% de potência`;
+    }
+
     aplicarEfeito(motor: Motor): void {
         const ganho = motor.getPotenciaBase() * (this.percentual / 100);
         motor.adicionarPotencia(ganho);

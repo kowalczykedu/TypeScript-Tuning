@@ -24,5 +24,9 @@ export abstract class Peca implements Identificavel {
         return this.descricao;
     }
 
+    getDetalhesTecnicos(): string {
+        return "";
+    }
+
     abstract aplicarEfeito(motor: Motor): void;
 }

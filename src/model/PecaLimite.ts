@@ -9,6 +9,10 @@ export class PecaLimite extends Peca {
         this.percentual = percentual;
     }
 
+    getDetalhesTecnicos(): string {
+        return `+${this.percentual}% de limite`;
+    }
+
     aplicarEfeito(motor: Motor): void {
         const ganho = motor.getLimiteBase() * (this.percentual / 100);
         motor.adicionarLimite(ganho);
