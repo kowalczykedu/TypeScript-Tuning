@@ -1,9 +1,9 @@
-import type { Peca } from "./Peca";
-import { TipoPeca } from "./TipoPeca";
-import { PecaPotencia } from "./PecaPotencia";
-import { PecaLimite } from "./PecaLimite";
-import { PecaMista } from "./PecaMista";
-import { PecaTurbina } from "./PecaTurbina";
+import type { Peca } from "../model/Peca";
+import { TipoPeca } from "../model/TipoPeca";
+import { PecaPotencia } from "../model/PecaPotencia";
+import { PecaLimite } from "../model/PecaLimite";
+import { PecaMista } from "../model/PecaMista";
+import { PecaTurbina } from "../model/PecaTurbina";
 
 const catalogo = new Map<TipoPeca, Peca[]>();
 export { catalogo };

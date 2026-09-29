@@ -1,8 +1,8 @@
-import { Peca } from "./Peca";
-import { TipoPeca } from "./TipoPeca";
-import { PecaOriginal } from "./PecaOriginal";
-import { PecaNaoInstalada } from "./PecaNaoInstalada";
-import Motor from "./Motor";
+import { Peca } from "../model/Peca";
+import { TipoPeca } from "../model/TipoPeca";
+import { PecaOriginal } from "../model/PecaOriginal";
+import { PecaNaoInstalada } from "../model/PecaNaoInstalada";
+import Motor from "../model/Motor";
 
 function criarPecasOriginais(slotsNaoAplicaveis: TipoPeca[] = []): Map<TipoPeca, Peca> {
     const pecasOriginais = new Map<TipoPeca, Peca>();
@@ -19,12 +19,12 @@ function criarPecasOriginais(slotsNaoAplicaveis: TipoPeca[] = []): Map<TipoPeca,
 
 const motorUpTsi = new Motor("EA211 (Up Tsi)", 3, 105, 150, 0.8, criarPecasOriginais());
 const motorFusca = new Motor("Boxer 1600 (Fusca)", 4, 54, 260, criarPecasOriginais([TipoPeca.Turbina, TipoPeca.Intercooler, TipoPeca.Radiador, TipoPeca.Intake]));
-const motorCivicSi = new Motor("K20Z3 (Civic Si 2008)", 4, 192, 400, criarPecasOriginais());
+const motorCivicSi = new Motor("K20Z3 (Civic Si 2008)", 4, 192, 400, criarPecasOriginais([TipoPeca.Turbina, TipoPeca.Intercooler]));
 const motorMarea = new Motor("Fivetech Turbo (Marea)", 5, 182, 350, 1.2, criarPecasOriginais());
-const motorOmega = new Motor("Powertech 4.1 (Omega)", 6, 168, 400, criarPecasOriginais());
+const motorOmega = new Motor("Powertech 4.1 (Omega)", 6, 168, 400, criarPecasOriginais([TipoPeca.Turbina, TipoPeca.Intercooler]));
 const motorF250 = new Motor("MWM Sprint 6.07TCA (F-250)", 6, 180, 250, 0.8, criarPecasOriginais());
 const motorS10 = new Motor("MWM Sprint 4.07TCA (S-10)", 4, 132, 200, 1.1, criarPecasOriginais());
-const motorMaverick = new Motor("Ford 302 Windsor (Maverick)", 8, 135, 450, criarPecasOriginais());
+const motorMaverick = new Motor("Ford 302 Windsor (Maverick)", 8, 135, 450, criarPecasOriginais([TipoPeca.Turbina, TipoPeca.Intercooler]));
 const motorSupra = new Motor("2JZ-GTE (Supra MK4)", 6, 276, 450, 0.7, criarPecasOriginais());
 const motorR34 = new Motor("RB26DETT (Skyline R-34)", 6, 286, 430, 0.7, criarPecasOriginais());
 

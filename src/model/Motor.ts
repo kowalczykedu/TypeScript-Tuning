@@ -89,17 +89,17 @@ export default class Motor implements Identificavel {
     }
 
     instalarPeca(tipoPeca: TipoPeca, peca: Peca): void {
-        const potenciaArredondada = Math.round(this.potenciaAtual);
-
         this.pecas.set(tipoPeca, peca);
         this.recalcular();
 
+        const potenciaArredondada = Math.round(this.potenciaAtual);
+
         if (this.potenciaAtual > this.limiteAtual) {
             throw new MotorQuebradoError(
-                `${this.nome} quebrou! Potência de ${this.potenciaAtual}cv excede o limite de ${this.limiteAtual}cv`,
+                `${this.nome} quebrou! Potência de ${potenciaArredondada}cv excede o limite de ${this.limiteAtual}cv`,
                 this,
                 potenciaArredondada
-            );
+            )
         }
     }
 }

@@ -11,4 +11,4 @@ export enum TipoPeca {
     Intercooler = "intercooler",
     Radiador = "radiador",
     RadiadorOleo = "radiadorOleo"
-}
+};
