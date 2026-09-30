@@ -102,4 +102,9 @@ export default class Motor implements Identificavel {
             )
         }
     }
+
+    clonar(): Motor {
+        const pecasCopiadas = new Map<TipoPeca, Peca>(this.pecas);
+        return new Motor(this.nome, this.cilindros, this.potenciaBase, this.limiteBase, this.pressaoBase!, pecasCopiadas);
+    }
 }

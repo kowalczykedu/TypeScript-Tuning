@@ -18,12 +18,12 @@ export class OficinaController {
     }
 
     selecionarMotor(escolha: number): void {
-        const motor = motoresPreDefinidos[escolha - 1];
+        const motorOriginal = motoresPreDefinidos[escolha - 1];
 
-        if (!motor) {
+        if (!motorOriginal) {
             throw new EscolhaInvalidaError("Motor inválido", escolha);
         }
-        this.motorSelecionado = motor;
+        this.motorSelecionado = motorOriginal.clonar();
     }
 
     getMotorSelecionado(): Motor {
@@ -33,11 +33,17 @@ export class OficinaController {
         return this.motorSelecionado;
     }
 
-    adicionarMotorCustomizado(motor: Motor): void {
+    finalizarTuning(): void {
+        const motor = this.getMotorSelecionado();
+        this.adicionarMotorCustomizado(motor);
+        this.motorSelecionado = undefined;
+    }
+
+    private adicionarMotorCustomizado(motor: Motor): void {
         this.motoresCustomizados.push(motor);
     }
 
     getMotoresCustomizados(): Motor[] {
         return this.motoresCustomizados;
     }
-};
+}

@@ -36,7 +36,7 @@ try {
     } else {
         throw erro;
     }
-};
+}
 
 console.log(`\x1b[34m${motor.getNome()}\x1b[0m Potência = \x1b[32m${Math.trunc(motor.getPotenciaAtual())}cv\x1b[0m, Limite = \x1b[31m${Math.trunc(motor.getLimiteAtual())}cv\x1b[0m`);
 for (const [slot, peca] of motor.getPecas()) {
@@ -47,5 +47,5 @@ for (const [slot, peca] of motor.getPecas()) {
     } else {
         console.log(`\x1b[32m${slot}:\x1b[0m \x1b[1;38;5;208m${peca.getModelo()}\x1b[0m e ${peca.getDetalhesTecnicos()}`);
     }
-};
+}
 console.log(motor.getPressaoBase());

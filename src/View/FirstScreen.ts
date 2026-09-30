@@ -12,7 +12,7 @@ export default class FirstScreen {
     }
 
     openFirstScreen(): void {
-        let escolha = teclado.questionInt(
+        const escolha = teclado.questionInt(
 `Escolha entre as seguintes opcoes e digite o numero escolhido: 
 1 para listar os motores
 2 para sair da tela 
@@ -56,17 +56,17 @@ ${ROXO}========================================${RESET}
 ${ROXO}${index + 1} - ${motor.getNome()}${RESET}
 ${ROXO}========================================${RESET}
 Quantidade de Cilindros : ${AZUL}${motor.getCilindros()}${RESET}
-Potência Original       : ${VERDE}${Math.trunc(motor.getPotenciaAtual())} cv${RESET}
-Limite de potência      : ${VERMELHO}${Math.trunc(motor.getLimiteAtual())} cv${RESET}
+Potência Original       : ${VERDE}${motor.getPotenciaBase()} cv${RESET}
+Limite de potência      : ${VERMELHO}${motor.getLimiteBase()} cv${RESET}
 Pressão Base da Turbina : ${AZUL}${motor.getPressaoBase()} kg${RESET}
 ${ROXO}========================================${RESET}`;
 }
 
-    receberEscolhaMotor(): number {
+    private receberEscolhaMotor(): number {
         const VERDE = "\x1b[38;5;48m";
         const RESET = "\x1b[0m";
 
         const escolhaMotor = teclado.questionInt(`${VERDE}Qual é o motor que você deseja escolher?${RESET} `);
         return escolhaMotor;
-    };
-};
+    }
+}
