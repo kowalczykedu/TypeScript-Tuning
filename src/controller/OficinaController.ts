@@ -1,24 +1,31 @@
 import type Motor from "../model/Motor";
-import { motoresPreDefinidos } from "../data/motoresData";
-import { catalogo } from "../data/pecasData";
-import { Peca } from "../model/Peca";
-import { TipoPeca } from "../model/TipoPeca";
+import type { Peca } from "../model/Peca";
+import type { TipoPeca } from "../model/TipoPeca";
 import { EscolhaInvalidaError } from "../model/exceptions/EscolhaInvalidaError";
+import type { MotorService } from "../service/MotorService";
 
 export class OficinaController {
     private motorSelecionado?: Motor;
-    private motoresCustomizados: Motor[] = [];
+    private service: MotorService;
+
+    constructor(service: MotorService) {
+        this.service = service;
+    }
 
     getMotores(): Motor[] {
-        return motoresPreDefinidos;
+        return this.service.getMotores();
     }
 
     getPecas(): Map<TipoPeca, Peca[]> {
-        return catalogo;
+        return this.service.getPecas();
+    }
+
+    getMotoresCustomizados(): Motor[] {
+        return this.service.getMotoresCustomizados();
     }
 
     selecionarMotor(escolha: number): void {
-        const motorOriginal = motoresPreDefinidos[escolha - 1];
+        const motorOriginal = this.service.buscarMotor(escolha - 1);
 
         if (!motorOriginal) {
             throw new EscolhaInvalidaError("Motor inválido", escolha);
@@ -35,15 +42,7 @@ export class OficinaController {
 
     finalizarTuning(): void {
         const motor = this.getMotorSelecionado();
-        this.adicionarMotorCustomizado(motor);
+        this.service.adicionarMotorCustomizado(motor);
         this.motorSelecionado = undefined;
-    }
-
-    private adicionarMotorCustomizado(motor: Motor): void {
-        this.motoresCustomizados.push(motor);
-    }
-
-    getMotoresCustomizados(): Motor[] {
-        return this.motoresCustomizados;
     }
 }

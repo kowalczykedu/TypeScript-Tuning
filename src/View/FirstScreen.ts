@@ -1,8 +1,7 @@
-import type { OficinaController } from "../controller/oficinaController";
 import teclado from "readline-sync";
 import { EscolhaInvalidaError } from "../model/exceptions/EscolhaInvalidaError";
+import type { OficinaController } from "../controller/OficinaController";
 import type Motor from "../model/Motor";
-
 
 export default class FirstScreen {
     private controller: OficinaController;
@@ -12,36 +11,68 @@ export default class FirstScreen {
     }
 
     openFirstScreen(): void {
-        const escolha = teclado.questionInt(
+        const VERMELHO = "\x1b[31m";
+        const RESET = "\x1b[0m";
+
+        let escolhaValida = false;
+        while(!escolhaValida) {
+            try {
+                const escolha = teclado.questionInt(
 `Escolha entre as seguintes opcoes e digite o numero escolhido: 
 1 para listar os motores
 2 para sair da tela 
 `
-);
-        console.log();
+                    );
+                    console.log();
 
-        switch (escolha) {
-            case 1:
-                this.listarMotores();
-                break;
+                switch (escolha) {
+                    case 1:
+                        this.listarMotores();
+                        escolhaValida = true;
+                        break;
 
-            case 2:   
-                break;
+                    case 2:   
+                        escolhaValida = true;
+                        break;
 
-            default: 
-                throw new EscolhaInvalidaError("Entrada Inválida", escolha);
+                    default: 
+                        throw new EscolhaInvalidaError("Escolha Inválida", escolha);
+                }
+            } catch (erro) {
+                if (erro instanceof EscolhaInvalidaError) {
+                    console.log(`${VERMELHO}${erro.message}, sua escolha: ${erro.entradaRecebida}${RESET}`);
+                    console.log();
+                } else {
+                    throw erro;
+                }
+            }
         }
     }
 
     private listarMotores(): void {
+        const VERMELHO = "\x1b[31m";
+        const RESET = "\x1b[0m";
         const motores = this.controller.getMotores();
 
         for (const [index, motor] of motores.entries()) {
             console.log(this.formatarMotor(motor, index));
         }
         console.log();
-        const escolhaMotor = this.receberEscolhaMotor();
-        this.controller.selecionarMotor(escolhaMotor);
+
+        let selecionado = false;
+        while (!selecionado) {
+            try {
+                const escolhaMotor = this.receberEscolhaMotor();
+                this.controller.selecionarMotor(escolhaMotor);
+                selecionado = true;
+                } catch (erro) {
+                    if (erro instanceof EscolhaInvalidaError) {
+                    console.log(`${VERMELHO}${erro.message}, sua escolha: ${erro.entradaRecebida}${RESET}`);
+                } else {
+                    throw erro;
+                }
+            }
+        }
     }
 
     private formatarMotor(motor: Motor, index: number): string {       
