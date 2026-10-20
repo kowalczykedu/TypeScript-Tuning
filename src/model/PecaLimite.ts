@@ -1,5 +1,5 @@
-import type Motor from "./Motor.ts";
-import { Peca } from "./Peca.ts";
+import type Motor from "./Motor";
+import { Peca } from "./Peca";
 
 export class PecaLimite extends Peca {
     private percentual: number;
