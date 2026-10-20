@@ -64,10 +64,11 @@ ganho          = potenciaBase × pressaoEfetiva
 
 A mesma fórmula serve para motor aspirado e turbo, sem `if`: o aspirado tem pressão base 0.
 
-| Motor            | Potência base | Pressão base | Turbina |       Ganho       |   Final   |
-| ---------------- | :-----------: | :----------: | :-----: | :---------------: | :-------: |
-| Fusca (aspirado) |     54cv      |     0kg      |   2kg   |  54 × 2 = 108cv   | **162cv** |
-| Up TSI (turbo)   |     105cv     |    0.8kg     |   2kg   | 105 × 1.2 = 126cv | **231cv** |
+| Motor            | Potência base | Pressão base | Turbina |          Ganho          |    Final    |
+| ---------------- | :-----------: | :----------: | :-----: | :---------------------: | :---------: |
+| Fusca (aspirado) |     54cv      |     0kg      |   2kg   |     54 × 2 = 108cv      |  **162cv**  |
+| Up TSI (turbo)   |     105cv     |    0.8kg     |   2kg   |    105 × 1.2 = 126cv    |  **231cv**  |
+| Marea (turbo)    |     182cv     |    1.2kg     |   1kg   | 182 × (- 0.2) = -36.4cv | **145.6cv** |
 
 ## RN-07 — Instalação e recálculo
 
