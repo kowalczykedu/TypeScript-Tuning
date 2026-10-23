@@ -26,7 +26,7 @@ export default class Motor implements Identificavel {
             this.pressaoBase = quintoArgumento;
             this.pecas = pecas!;
             } else {
-                this.nome = nome;
+            this.nome = nome;
             this.cilindros = cilindros;
             this.potenciaBase = potenciaBase;
             this.potenciaAtual = potenciaBase;
@@ -89,14 +89,24 @@ export default class Motor implements Identificavel {
     }
 
     instalarPeca(tipoPeca: TipoPeca, peca: Peca): void {
+        const pecaAnterior = this.pecas.get(tipoPeca);
+
+        if (pecaAnterior === undefined) {
+            throw new Error(`Peça inexistente do tipo ${tipoPeca} no motor ${this.nome}`);
+        }
+
         this.pecas.set(tipoPeca, peca);
         this.recalcular();
 
         const potenciaArredondada = Math.round(this.potenciaAtual);
+        const limiteArredondado = Math.round(this.limiteAtual);
 
         if (this.potenciaAtual > this.limiteAtual) {
+            this.pecas.set(tipoPeca, pecaAnterior);
+            this.recalcular();
+            
             throw new MotorQuebradoError(
-                `${this.nome} quebrou! Potência de ${potenciaArredondada}cv excede o limite de ${this.limiteAtual}cv`,
+                `${this.nome} quebrou! Potência de ${potenciaArredondada}cv excede o limite de ${limiteArredondado}cv`,
                 this,
                 potenciaArredondada
             )
