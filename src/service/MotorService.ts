@@ -21,6 +21,18 @@ export class MotorService {
         return this.catalogo;
     }
 
+    listarPecasDoSlot(tipoPeca: TipoPeca): Peca[] {
+        const pecas = this.catalogo.get(tipoPeca);
+        if (!pecas) {
+            throw new Error(`Nenhuma peça encontrada para o tipo ${tipoPeca}`);
+        }
+        return pecas;
+    }
+
+    instalarPecaNoMotor(motor: Motor, tipoPeca: TipoPeca, peca: Peca): void {
+        motor.instalarPeca(tipoPeca, peca);
+    }
+
     buscarMotor(indice: number): Motor | undefined {
         return this.motoresPreDefinidos[indice];
     }

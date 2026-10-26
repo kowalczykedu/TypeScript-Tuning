@@ -2,6 +2,7 @@ import teclado from "readline-sync";
 import { EscolhaInvalidaError } from "../model/exceptions/EscolhaInvalidaError";
 import type { OficinaController } from "../controller/OficinaController";
 import type Motor from "../model/Motor";
+import cores from "./Cores";
 
 export default class FirstScreen {
     private controller: OficinaController;
@@ -11,8 +12,6 @@ export default class FirstScreen {
     }
 
     openFirstScreen(): void {
-        const VERMELHO = "\x1b[31m";
-        const RESET = "\x1b[0m";
 
         let escolhaValida = false;
         while(!escolhaValida) {
@@ -40,7 +39,7 @@ export default class FirstScreen {
                 }
             } catch (erro) {
                 if (erro instanceof EscolhaInvalidaError) {
-                    console.log(`${VERMELHO}${erro.message}, sua escolha: ${erro.entradaRecebida}${RESET}`);
+                    console.log(`${cores.VERMELHO_BRILHANTE}${erro.message}, sua escolha: ${erro.entradaRecebida}${cores.RESET}`);
                     console.log();
                 } else {
                     throw erro;
@@ -50,8 +49,6 @@ export default class FirstScreen {
     }
 
     private listarMotores(): void {
-        const VERMELHO = "\x1b[31m";
-        const RESET = "\x1b[0m";
         const motores = this.controller.getMotores();
 
         for (const [index, motor] of motores.entries()) {
@@ -67,7 +64,7 @@ export default class FirstScreen {
                 selecionado = true;
                 } catch (erro) {
                     if (erro instanceof EscolhaInvalidaError) {
-                    console.log(`${VERMELHO}${erro.message}, sua escolha: ${erro.entradaRecebida}${RESET}`);
+                    console.log(`${cores.VERMELHO_BRILHANTE}${erro.message}, sua escolha: ${erro.entradaRecebida}${cores.RESET}`);
                 } else {
                     throw erro;
                 }
@@ -76,28 +73,21 @@ export default class FirstScreen {
     }
 
     private formatarMotor(motor: Motor, index: number): string {       
-    const ROXO = "\x1b[34m";
-    const VERDE = "\x1b[38;5;48m";
-    const VERMELHO = "\x1b[31m";
-    const AZUL = "\x1b[38;5;33m";
-    const RESET = "\x1b[0m";
 
     return `
-${ROXO}========================================${RESET}
-${ROXO}${index + 1} - ${motor.getNome()}${RESET}
-${ROXO}========================================${RESET}
-Quantidade de Cilindros : ${AZUL}${motor.getCilindros()}${RESET}
-Potência Original       : ${VERDE}${motor.getPotenciaBase()} cv${RESET}
-Limite de potência      : ${VERMELHO}${motor.getLimiteBase()} cv${RESET}
-Pressão Base da Turbina : ${AZUL}${motor.getPressaoBase()} kg${RESET}
-${ROXO}========================================${RESET}`;
+${cores.ROXO_ESCURO}========================================${cores.RESET}
+${cores.ROXO_ESCURO}${index + 1} - ${motor.getNome()}${cores.RESET}
+${cores.ROXO_ESCURO}========================================${cores.RESET}
+Quantidade de Cilindros : ${cores.AZUL_CEU}${motor.getCilindros()}${cores.RESET}
+Potência Original       : ${cores.VERDE}${motor.getPotenciaBase()} cv${cores.RESET}
+Limite de potência      : ${cores.VERMELHO_BRILHANTE}${motor.getLimiteBase()} cv${cores.RESET}
+Pressão Base da Turbina : ${cores.AZUL_CEU}${motor.getPressaoBase()} kg${cores.RESET}
+${cores.ROXO_ESCURO}========================================${cores.RESET}`;
 }
 
     private receberEscolhaMotor(): number {
-        const VERDE = "\x1b[38;5;48m";
-        const RESET = "\x1b[0m";
-
-        const escolhaMotor = teclado.questionInt(`${VERDE}Qual é o motor que você deseja escolher?${RESET} `);
+        const escolhaMotor = teclado.questionInt(`${cores.VERDE}Qual e o motor que voce deseja escolher?${cores.RESET} `);
+        console.log(`O motor escolhido foi: ${cores.AZUL_CEU}${escolhaMotor}${cores.RESET}`);
         return escolhaMotor;
     }
 }
