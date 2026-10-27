@@ -17,5 +17,6 @@ export class PecaTurbina extends Peca {
         const pressaoEfetiva = this.pressao - motor.getPressaoBase();
         const ganho = motor.getPotenciaBase() * pressaoEfetiva;
         motor.adicionarPotencia(ganho);
+        motor.definirPressaoAtual(this.pressao);
     }
 }

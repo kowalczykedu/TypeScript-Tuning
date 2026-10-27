@@ -19,13 +19,16 @@ const alimentacao = catalogo.get(TipoPeca.Alimentacao)!;
 console.log(`\x1b[38;5;33mPotência base =\x1b[0m \x1b[32m${motor.getPotenciaBase()}cv\x1b[0m`); 
 console.log(`\x1b[38;5;33mLimite base =\x1b[0m \x1b[31m${motor.getLimiteAtual()}cv\x1b[0m`); 
 
-motor.instalarPeca(TipoPeca.Pistao, pistao[3]);
+motor.instalarPeca(TipoPeca.Pistao, pistao[4]);
+motor.instalarPeca(TipoPeca.Biela, biela[4]);
 motor.instalarPeca(TipoPeca.ColetorESC, coletorEscape[1]);
 motor.instalarPeca(TipoPeca.ColetorADM, coletorAdmissao[1]);
 motor.instalarPeca(TipoPeca.Alimentacao, alimentacao[0]);
+motor.instalarPeca(TipoPeca.Turbina, turbinas[0]);
+
 
 try {
-    motor.instalarPeca(TipoPeca.Turbina, turbinas[0]);
+    motor.instalarPeca(TipoPeca.Turbina, turbinas[2]);
     motor.instalarPeca(TipoPeca.Comando, comando[1]);
 
     console.log("Instalada sem problema.");
@@ -49,3 +52,4 @@ for (const [slot, peca] of motor.getPecas()) {
     }
 }
 console.log(motor.getPressaoBase());
+console.log(motor.getPressaoAtual());

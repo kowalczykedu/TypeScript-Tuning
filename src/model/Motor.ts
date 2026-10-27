@@ -10,7 +10,8 @@ export default class Motor implements Identificavel {
     private limiteBase: number;
     private potenciaAtual: number;
     private limiteAtual: number;
-    private pressaoBase?: number;
+    private pressaoBase: number;
+    private pressaoAtual: number;
     private pecas: Map<TipoPeca, Peca>;
 
     constructor(nome: string, cilindros: number, potenciaBase: number, limiteBase: number, pecas: Map<TipoPeca, Peca>);
@@ -24,6 +25,7 @@ export default class Motor implements Identificavel {
             this.limiteBase = limiteBase;
             this.limiteAtual = limiteBase;
             this.pressaoBase = quintoArgumento;
+            this.pressaoAtual = quintoArgumento;
             this.pecas = pecas!;
             } else {
             this.nome = nome;
@@ -33,6 +35,7 @@ export default class Motor implements Identificavel {
             this.limiteBase = limiteBase;
             this.limiteAtual = limiteBase;
             this.pressaoBase = 0;
+            this.pressaoAtual = 0;
             this.pecas = quintoArgumento;
             }
     }
@@ -63,7 +66,11 @@ export default class Motor implements Identificavel {
     }
 
     getPressaoBase(): number {
-        return this.pressaoBase!;
+        return this.pressaoBase;
+    }
+
+    getPressaoAtual(): number {
+        return this.pressaoAtual;
     }
 
     getPecas(): Map<TipoPeca, Peca> {
@@ -79,9 +86,14 @@ export default class Motor implements Identificavel {
         this.limiteAtual += valor;
     }
 
+    definirPressaoAtual(valor: number): void{
+        this.pressaoAtual = valor;
+    }
+
     recalcular(): void {
         this.potenciaAtual = this.potenciaBase;
         this.limiteAtual = this.limiteBase;
+        this.pressaoAtual = this.pressaoBase;
 
         for (const peca of this.pecas.values()) {
             peca.aplicarEfeito(this);
@@ -115,6 +127,6 @@ export default class Motor implements Identificavel {
 
     clonar(): Motor {
         const pecasCopiadas = new Map<TipoPeca, Peca>(this.pecas);
-        return new Motor(this.nome, this.cilindros, this.potenciaBase, this.limiteBase, this.pressaoBase!, pecasCopiadas);
+        return new Motor(this.nome, this.cilindros, this.potenciaBase, this.limiteBase, this.pressaoBase, pecasCopiadas);
     }
 }

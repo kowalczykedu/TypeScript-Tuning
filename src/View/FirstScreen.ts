@@ -2,7 +2,7 @@ import teclado from "readline-sync";
 import { EscolhaInvalidaError } from "../model/exceptions/EscolhaInvalidaError";
 import type { OficinaController } from "../controller/OficinaController";
 import type Motor from "../model/Motor";
-import cores from "./Cores";
+import cores from "./util/Cores";
 
 export default class FirstScreen {
     private controller: OficinaController;
@@ -86,8 +86,6 @@ ${cores.ROXO_ESCURO}========================================${cores.RESET}`;
 }
 
     private receberEscolhaMotor(): number {
-        const escolhaMotor = teclado.questionInt(`${cores.VERDE}Qual e o motor que voce deseja escolher?${cores.RESET} `);
-        console.log(`O motor escolhido foi: ${cores.AZUL_CEU}${escolhaMotor}${cores.RESET}`);
-        return escolhaMotor;
+        return teclado.questionInt(`${cores.VERDE}Qual e o motor que voce deseja escolher?${cores.RESET} `);
     }
 }
