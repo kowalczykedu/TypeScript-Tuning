@@ -7,8 +7,7 @@ import { catalogo } from "./data/pecasData";
 
 const service = new MotorService(motoresPreDefinidos, catalogo);
 const controller = new OficinaController(service);
-const firstScreen = new FirstScreen(controller);
 const secondScreen = new SecondScreen(controller);
+const firstScreen = new FirstScreen(controller, secondScreen);
 
-//firstScreen.openFirstScreen();
-console.log(secondScreen.formatarMenuPecas(controller.listarPecasDoSlot(1)));
+firstScreen.openFirstScreen();

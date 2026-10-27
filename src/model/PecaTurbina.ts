@@ -10,7 +10,7 @@ export class PecaTurbina extends Peca {
     }
 
     getDetalhesTecnicos(): string {
-        return `${this.pressao}kg de pressão`;
+        return `${this.pressao}bar de pressão`;
     }
     
     aplicarEfeito(motor: Motor): void {
