@@ -24,6 +24,10 @@ export class OficinaController {
         return this.service.getMotoresCustomizados();
     }
 
+    buscarMotorCustomizado(nome: string): Motor | undefined {
+        return this.service.buscarMotorCustomizado(nome);
+    }
+
     selecionarMotor(escolha: number): void {
         const motorOriginal = this.service.buscarMotor(escolha - 1);
 

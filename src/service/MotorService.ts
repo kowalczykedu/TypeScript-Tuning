@@ -1,16 +1,17 @@
 import type Motor from "../model/Motor";
 import type { TipoPeca } from "../model/TipoPeca";
 import type { Peca } from "../model/Peca";
+import type { Irepository } from "../repository/IRepository";
 
 export class MotorService {
     private motoresPreDefinidos: Motor[];
     private catalogo: Map<TipoPeca, Peca[]>;
-    private motoresCustomizados: Motor[];
+    private repositorio: Irepository<Motor>;
 
-    constructor(motoresPreDefinidos: Motor[], catalogo: Map<TipoPeca, Peca[]>) {
+    constructor(motoresPreDefinidos: Motor[], catalogo: Map<TipoPeca, Peca[]>, repositorio: Irepository<Motor>) {
         this.motoresPreDefinidos = motoresPreDefinidos;
         this.catalogo = catalogo;
-        this.motoresCustomizados = [];
+        this.repositorio = repositorio;
     }
 
     getMotores(): Motor[] {
@@ -38,10 +39,14 @@ export class MotorService {
     }
 
     adicionarMotorCustomizado(motor: Motor): void {
-        this.motoresCustomizados.push(motor);
+        this.repositorio.salvar(motor);
     }
 
     getMotoresCustomizados(): Motor[] {
-        return this.motoresCustomizados;
+        return this.repositorio.listar();
+    }
+
+    buscarMotorCustomizado(nome: string): Motor | undefined {
+        return this.repositorio.buscarPorNome(nome);
     }
 }

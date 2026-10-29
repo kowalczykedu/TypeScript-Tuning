@@ -28,6 +28,7 @@ ${cores.ROXO_INTENSO}╔ ${cores.BRANCO_BRILHANTE}${cores.NEGRITO}Escolha entre 
 ${cores.ROXO_INTENSO}║ ${cores.VERMELHO}0 ← Sair da tela Inicial ${cores.ROXO_INTENSO}════════════════════════════════╣${cores.RESET}
 ${cores.ROXO_INTENSO}║ ${cores.ROXO_SUAVE}1 → Listar os motores disponíveis ${cores.ROXO_INTENSO}═══════════════════════╣${cores.RESET}
 ${cores.ROXO_INTENSO}║ ${cores.ROXO_SUAVE}2 → Listar os seus motores customizados ${cores.ROXO_INTENSO}═════════════════╣${cores.RESET}
+${cores.ROXO_INTENSO}║ ${cores.ROXO_SUAVE}3 → Buscar um dos seus motores customizados ${cores.ROXO_INTENSO}═════════════╣${cores.RESET}
 ${cores.ROXO_INTENSO}╚══════════════════════════════════════════════════════════╝${cores.RESET}
 ${cores.ROXO_INTENSO}➜ ${cores.BRANCO_BRILHANTE} ${cores.VERDE_MENTA}`
 );
@@ -47,6 +48,10 @@ console.log(cores.RESET);
                         this.listarMotoresCustomizados();
                         break;
 
+                    case 3:
+                        this.buscarMotorCustomizado();
+                        break;
+
                     default: 
                         throw new EscolhaInvalidaError("Escolha inválida, tente novamente. Sua escolha:", escolha);
                 }
@@ -58,6 +63,21 @@ console.log(cores.RESET);
                 }
             }
         }
+    }
+
+    private buscarMotorCustomizado(): void {
+        console.log(`${cores.BRANCO_BRILHANTE}${cores.NEGRITO}${cores.ITALICO}Digite o nome do motor${cores.RESET}`);
+        const nome = teclado.question(`${cores.ROXO_INTENSO}➜ ${cores.BRANCO_BRILHANTE} ${cores.VERDE_MENTA}`).trim();
+
+        const busca = this.controller.buscarMotorCustomizado(nome);
+        if (busca === undefined) {
+            console.log();
+            console.log(`${cores.etiqueta(`${cores.NEGRITO}${cores.ITALICO}Não foi possível achar um motor com o nome "${nome}".`, cores.VERMELHO_SANGUE, cores.BRANCO_BRILHANTE)}`)
+            return;
+        }
+
+        const slots = this.controller.listarSlots();
+        console.log(this.formatador.formatarEstado(busca, slots, busca.getNome()));
     }
 
     private listarMotores(): void {

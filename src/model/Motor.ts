@@ -1,9 +1,9 @@
-import { Identificavel } from "./Identificavel";
+import { Isearch } from "./ISearch";
 import { TipoPeca } from "./TipoPeca";
 import { Peca } from "./Peca";
 import { MotorQuebradoError } from "./exceptions/MotorQuebradoError";
 
-export default class Motor implements Identificavel {
+export default class Motor implements Isearch {
     private nome: string;
     private cilindros: number;
     private potenciaBase: number;
