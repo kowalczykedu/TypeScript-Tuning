@@ -1,16 +1,16 @@
 import { TipoPeca } from "../../model/TipoPeca";
 
 export const nomesDosSlots: Record<TipoPeca, string> = {
+        [TipoPeca.Biela]: "Biela",        
         [TipoPeca.Pistao]: "Pistão",
-        [TipoPeca.Biela]: "Biela",
-        [TipoPeca.Comando]: "Comando",
-        [TipoPeca.Cabecote]: "Cabeçote",
-        [TipoPeca.Turbina]: "Turbina",
-        [TipoPeca.Alimentacao]: "Alimentação",
-        [TipoPeca.ColetorADM]: "Coletor de Admissão",
-        [TipoPeca.ColetorESC]: "Coletor de Escape",
         [TipoPeca.Intake]: "Intake",
-        [TipoPeca.Intercooler]: "Intercooler",
+        [TipoPeca.Comando]: "Comando",
+        [TipoPeca.Turbina]: "Turbina",
+        [TipoPeca.Cabecote]: "Cabeçote",
         [TipoPeca.Radiador]: "Radiador",
-        [TipoPeca.RadiadorOleo]: "Radiador de Óleo"
+        [TipoPeca.Alimentacao]: "Alimentação",
+        [TipoPeca.Intercooler]: "Intercooler",
+        [TipoPeca.ColetorESC]: "Coletor de Escape",
+        [TipoPeca.RadiadorOleo]: "Radiador de Óleo",
+        [TipoPeca.ColetorADM]: "Coletor de Admissão"
 };

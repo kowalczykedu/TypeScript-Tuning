@@ -1,3 +1,21 @@
+
 {
-    "terminal.integrated.textBlinking": true
+    "terminal.integrated.fontFamily": "'Cascadia Code PL', Consolas, monospace",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.textBlinking": true,
+    "terminal.integrated.detectLocale": "on",
+
+    "terminal.integrated.profiles.windows": {
+        "PowerShell (UTF-8)": {
+            "source": "PowerShell",
+            "args": [
+                "-NoLogo",
+                "-NoExit",
+                "-Command",
+                "chcp 65001 > $null; [Console]::InputEncoding = [System.Text.UTF8Encoding]::new(); [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new(); $OutputEncoding = [Console]::OutputEncoding"
+            ]
+        }
+    },
+
+    "terminal.integrated.defaultProfile.windows": "PowerShell (UTF-8)"
 }

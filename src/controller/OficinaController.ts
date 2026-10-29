@@ -28,7 +28,7 @@ export class OficinaController {
         const motorOriginal = this.service.buscarMotor(escolha - 1);
 
         if (!motorOriginal) {
-            throw new EscolhaInvalidaError("Motor inválido", escolha);
+            throw new EscolhaInvalidaError("Motor não encontrado", escolha);
         }
         this.motorSelecionado = motorOriginal.clonar();
     }
@@ -48,7 +48,8 @@ export class OficinaController {
         const slots = this.listarSlots();
         const slotSelecionado = slots[numeroSlot - 1];
         if (!slotSelecionado) {
-            throw new EscolhaInvalidaError("O número do slot é inválido", numeroSlot);
+            console.log();
+            throw new EscolhaInvalidaError("O tipo de peça que você está tentando selecionar não existe, tente novamente. Sua escolha: ", numeroSlot);
         }
         return slotSelecionado;
     }
@@ -63,7 +64,8 @@ export class OficinaController {
         const pecasDoSlot = this.listarPecasDoSlot(numeroSlot);
         const pecaSelecionada = pecasDoSlot[numeroPeca - 1];
         if (!pecaSelecionada) {
-            throw new EscolhaInvalidaError("O número da peça é inválido", numeroPeca);
+            console.log();
+            throw new EscolhaInvalidaError("A peça selecionado não foi encontrada, tente novamente. Sua escolha: ", numeroPeca);
         }
         const motor = this.getMotorSelecionado();
         this.service.instalarPecaNoMotor(motor, tipoPeca, pecaSelecionada);

@@ -118,7 +118,7 @@ export default class Motor implements Identificavel {
             this.recalcular();
             
             throw new MotorQuebradoError(
-                `${this.nome} quebrou! Potência de ${potenciaArredondada}cv excede o limite de ${limiteArredondado}cv`,
+                `${this.nome} QUEBROU!!! Potência de ${potenciaArredondada}cv excede o limite de ${limiteArredondado}cv`,
                 this,
                 potenciaArredondada
             )
