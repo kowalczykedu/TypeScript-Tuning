@@ -78,6 +78,10 @@ export default class Motor implements Isearch {
     }
     //fim Getters
 
+    renomear(novoNome: string): void {
+        this.nome = novoNome;
+    }
+
     adicionarPotencia(valor: number): void{
         this.potenciaAtual += valor;
     }

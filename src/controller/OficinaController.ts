@@ -24,8 +24,12 @@ export class OficinaController {
         return this.service.getMotoresCustomizados();
     }
 
-    buscarMotorCustomizado(nome: string): Motor | undefined {
-        return this.service.buscarMotorCustomizado(nome);
+    temMotorSelecionado(): boolean {
+        return (this.motorSelecionado !== undefined);
+    }
+
+    pesquisarMotoresCustomizados(nome: string): Motor[] {
+        return this.service.pesquisarMotoresCustomizados(nome);
     }
 
     selecionarMotor(escolha: number): void {
@@ -52,7 +56,6 @@ export class OficinaController {
         const slots = this.listarSlots();
         const slotSelecionado = slots[numeroSlot - 1];
         if (!slotSelecionado) {
-            console.log();
             throw new EscolhaInvalidaError("O tipo de peça que você está tentando selecionar não existe, tente novamente. Sua escolha: ", numeroSlot);
         }
         return slotSelecionado;
@@ -68,16 +71,16 @@ export class OficinaController {
         const pecasDoSlot = this.listarPecasDoSlot(numeroSlot);
         const pecaSelecionada = pecasDoSlot[numeroPeca - 1];
         if (!pecaSelecionada) {
-            console.log();
             throw new EscolhaInvalidaError("A peça selecionado não foi encontrada, tente novamente. Sua escolha: ", numeroPeca);
         }
         const motor = this.getMotorSelecionado();
         this.service.instalarPecaNoMotor(motor, tipoPeca, pecaSelecionada);
     }
 
-    finalizarTuning(): void {
+    finalizarTuning(nome: string): Motor {
         const motor = this.getMotorSelecionado();
-        this.service.adicionarMotorCustomizado(motor);
+        this.service.adicionarMotorCustomizado(motor, nome);
         this.motorSelecionado = undefined;
+        return motor;
     }
 }

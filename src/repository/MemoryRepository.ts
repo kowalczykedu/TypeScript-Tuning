@@ -1,6 +1,6 @@
 import { Isearch } from "../model/ISearch";
 import { Irepository } from "./IRepository";
-import { buscarPorNome } from "../util/buscarPorNome";
+import { filtrarPorNome } from "../util/filtrarPorNome";
 
 export class MemoryRepository<T extends Isearch> implements Irepository<T> {
     private itens: T[];
@@ -17,7 +17,7 @@ export class MemoryRepository<T extends Isearch> implements Irepository<T> {
         return [...this.itens];
     }
 
-    buscarPorNome(nome: string): T | undefined {
-        return buscarPorNome(this.listar(), nome);
+    pesquisarPorNome(nome: string): T[] {
+        return filtrarPorNome(this.listar(), nome);
     }
 }

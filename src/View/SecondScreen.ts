@@ -1,4 +1,4 @@
-import teclado, { question } from "readline-sync";
+import teclado from "readline-sync";
 import { EscolhaInvalidaError } from "../model/exceptions/EscolhaInvalidaError";
 import { MotorQuebradoError } from "../model/exceptions/MotorQuebradoError";
 import type { OficinaController } from "../controller/OficinaController";
@@ -6,6 +6,7 @@ import cores, { Cores } from "./util/Cores";
 import { nomesDosSlots } from "./util/NomesDosSlots";
 import type { Peca } from "../model/Peca";
 import type FormatadorMotor from "./util/FormatadorMotor";
+import { NomeDuplicadoError } from "../model/exceptions/NomeDuplicadoErro";
 
 export default class SecondScreen {
     private controller: OficinaController;
@@ -23,10 +24,13 @@ export default class SecondScreen {
             try {
                 const escolha = teclado.questionInt(
 `
+${cores.ROXO_INTENSO}╔ ${cores.BRANCO_BRILHANTE}${cores.NEGRITO}Motor Selecionado: ${cores.VERDE_MENTA}${this.controller.getMotorSelecionado().getNome()}${cores.RESET}
+${cores.ROXO_INTENSO}╚═══════════════════${cores.RESET}
 ${cores.ROXO_INTENSO}╔ ${cores.BRANCO_BRILHANTE}${cores.NEGRITO}Escolha entre as seguintes opções e digite a sua escolha${cores.ROXO_INTENSO} ╗${cores.RESET}    
 ${cores.ROXO_INTENSO}║ ${cores.VERMELHO}0 ← Voltar ${cores.ROXO_INTENSO}══════════════════════════════════════════════╣${cores.RESET}
 ${cores.ROXO_INTENSO}║ ${cores.ROXO_SUAVE}1 → Mostrar o motor ${cores.ROXO_INTENSO}═════════════════════════════════════╣${cores.RESET}
 ${cores.ROXO_INTENSO}║ ${cores.ROXO_SUAVE}2 → Mostrar o menu com os tipos de peças ${cores.ROXO_INTENSO}════════════════╣${cores.RESET}
+${cores.ROXO_INTENSO}║ ${cores.ROXO_SUAVE}3 → Finalizar e ver o resumo do tuning no motor${cores.ROXO_INTENSO}══════════╣${cores.RESET}
 ${cores.ROXO_INTENSO}╚══════════════════════════════════════════════════════════╝${cores.RESET}
 ${cores.ROXO_INTENSO}➜ ${cores.BRANCO_BRILHANTE} ${cores.VERDE_MENTA}`
 );
@@ -34,9 +38,6 @@ console.log(cores.RESET);
 
                 switch (escolha) {
                     case 0: 
-                        console.log(`Resumo do tuning: `);
-                        this.estadoMotor();
-                        this.controller.finalizarTuning()
                         finalizado = true;
                         break;
 
@@ -47,21 +48,51 @@ console.log(cores.RESET);
                     case 2: 
                         this.escolherPeca();
                         break;
+                    
+                    case 3:
+                        console.log(`${cores.BRANCO_BRILHANTE}${cores.NEGRITO}${cores.ITALICO}Resumo do tuning: ${cores.RESET}`);
+                        this.estadoMotor();
+                        this.pedirNomeEFinalizar();
+                        console.log(cores.RESET);
+                        finalizado = true;
+                        break;
 
                     default:
                         throw new EscolhaInvalidaError("Escolha inválida, tente novamente. Sua escolha:", escolha);
                 }
             } catch(erro) {
                 if(erro instanceof EscolhaInvalidaError) {
-                    console.log(`${cores.etiqueta(`${cores.NEGRITO}${cores.ITALICO}${erro.message} ${erro.entradaRecebida}`, cores.VERMELHO_SANGUE, cores.BRANCO_BRILHANTE)}`)
+                    console.log(`\n${cores.etiqueta(`${cores.NEGRITO}${cores.ITALICO}${erro.message} ${erro.entradaRecebida}`, cores.VERMELHO_SANGUE, cores.BRANCO_BRILHANTE)}`)
                 } else if (erro instanceof MotorQuebradoError) {
-                    console.log();
-                    console.log(`${cores.etiqueta(`${cores.NEGRITO}${cores.ITALICO}${erro.message}`, cores.VERMELHO_SANGUE, cores.BRANCO_BRILHANTE)}`)
+                    console.log(`\n${cores.etiqueta(`${cores.NEGRITO}${cores.ITALICO}${erro.message}`, cores.VERMELHO_SANGUE, cores.BRANCO_BRILHANTE)}`)
                     this.estadoMotor();
                 } else {
                     throw erro;
                 }
         }   }
+    }
+
+    private pedirNomeEFinalizar(): void {
+        const nomePadrao = this.controller.getMotorSelecionado().getNome();
+        let salvo = false;
+
+        while (!salvo) {
+            try {
+                const nomeDigitado = teclado.question(
+`
+${cores.BRANCO_BRILHANTE}${cores.NEGRITO}${cores.ITALICO}Digite o nome que você deseja dar ao motor, ou apenas dê enter para usar o nome padrão. Nome padrão: ${cores.ROXO_SUAVE}[${nomePadrao}]${cores.RESET}
+${cores.ROXO_INTENSO}➜ ${cores.BRANCO_BRILHANTE} ${cores.VERDE_MENTA}`);
+                const motorSalvo = this.controller.finalizarTuning(nomeDigitado);
+                console.log(`\n${cores.BRANCO_BRILHANTE}${cores.NEGRITO}${cores.ITALICO}Motor salvo com sucesso! Nome do motor: ${cores.VERDE_MENTA}${motorSalvo.getNome()}${cores.RESET}`);
+                salvo = true;
+            } catch (erro) {
+                if (erro instanceof NomeDuplicadoError || erro instanceof EscolhaInvalidaError) {
+                    console.log(`\n${cores.etiqueta(`${cores.NEGRITO}${cores.ITALICO}${erro.message}${erro.entradaRecebida}`, cores.VERMELHO_SANGUE, cores.BRANCO_BRILHANTE)}`)
+                } else {
+                    throw erro;
+                }
+            }
+        }
     }
 
     private escolherPeca(): void {
@@ -139,7 +170,7 @@ console.log(cores.RESET);
     }
 
     receberEscolhaPeca(): number {
-            console.log(`${cores.BRANCO_BRILHANTE}${cores.NEGRITO}${cores.ITALICO}Qual das peças acima você deseja instalar? ${cores.RESET}`);
-            return teclado.questionInt(`${cores.ROXO_INTENSO}➜ ${cores.BRANCO_BRILHANTE} ${cores.VERDE_MENTA}`);
+        console.log(`${cores.BRANCO_BRILHANTE}${cores.NEGRITO}${cores.ITALICO}Qual das peças acima você deseja instalar? ${cores.RESET}`);
+        return teclado.questionInt(`${cores.ROXO_INTENSO}➜ ${cores.BRANCO_BRILHANTE} ${cores.VERDE_MENTA}`);
     }
 }

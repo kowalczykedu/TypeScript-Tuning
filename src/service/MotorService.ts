@@ -2,11 +2,15 @@ import type Motor from "../model/Motor";
 import type { TipoPeca } from "../model/TipoPeca";
 import type { Peca } from "../model/Peca";
 import type { Irepository } from "../repository/IRepository";
+import { EscolhaInvalidaError } from "../model/exceptions/EscolhaInvalidaError";
+import { NomeDuplicadoError } from "../model/exceptions/NomeDuplicadoErro";
+import { buscarPorNomeExato } from "../util/buscarPorNomeExato";
 
 export class MotorService {
     private motoresPreDefinidos: Motor[];
     private catalogo: Map<TipoPeca, Peca[]>;
     private repositorio: Irepository<Motor>;
+    private readonly TAMANHO_MAXIMO_NOME = 40;
 
     constructor(motoresPreDefinidos: Motor[], catalogo: Map<TipoPeca, Peca[]>, repositorio: Irepository<Motor>) {
         this.motoresPreDefinidos = motoresPreDefinidos;
@@ -38,7 +42,21 @@ export class MotorService {
         return this.motoresPreDefinidos[indice];
     }
 
-    adicionarMotorCustomizado(motor: Motor): void {
+    adicionarMotorCustomizado(motor: Motor, nomeDigitado: string): void {
+        let nomeCustomizado = nomeDigitado.trim();
+        if (nomeCustomizado === "") {
+            nomeCustomizado = motor.getNome();
+        }
+
+        if (nomeCustomizado.length > this.TAMANHO_MAXIMO_NOME) {
+            throw new EscolhaInvalidaError(`O nome do motor customizado não pode exceder ${this.TAMANHO_MAXIMO_NOME} caracteres. Nome digitado: `, nomeCustomizado);
+        }
+
+        if (buscarPorNomeExato(this.repositorio.listar(), nomeCustomizado) !== undefined) {
+            throw new NomeDuplicadoError(`Já existe um motor usando esse nome, por favor escolha outro. Nome digitado: `, nomeCustomizado);
+        }
+
+        motor.renomear(nomeCustomizado);
         this.repositorio.salvar(motor);
     }
 
@@ -46,7 +64,7 @@ export class MotorService {
         return this.repositorio.listar();
     }
 
-    buscarMotorCustomizado(nome: string): Motor | undefined {
-        return this.repositorio.buscarPorNome(nome);
+    pesquisarMotoresCustomizados(nome: string): Motor[] {
+        return this.repositorio.pesquisarPorNome(nome);
     }
 }
