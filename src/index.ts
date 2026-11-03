@@ -4,11 +4,10 @@ import { OficinaController } from "./controller/OficinaController";
 import { MotorService } from "./service/MotorService";
 import { motoresPreDefinidos } from "./data/motoresData";
 import { catalogo } from "./data/pecasData";
-import type Motor from "./model/Motor";
 import FormatadorMotor from "./view/util/FormatadorMotor";
-import { MemoryRepository } from "./repository/MemoryRepository";
+import { Database } from "./repository/Database";
 
-const repositorio = new MemoryRepository<Motor>();
+const repositorio = new Database("tuning.db", catalogo);
 const service = new MotorService(motoresPreDefinidos, catalogo, repositorio);
 const controller = new OficinaController(service);
 const formatador = new FormatadorMotor();
