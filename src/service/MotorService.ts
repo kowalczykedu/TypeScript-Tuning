@@ -5,6 +5,7 @@ import type { Irepository } from "../repository/IRepository";
 import { EscolhaInvalidaError } from "../model/exceptions/EscolhaInvalidaError";
 import { NomeDuplicadoError } from "../model/exceptions/NomeDuplicadoErro";
 import { buscarPorNomeExato } from "../util/buscarPorNomeExato";
+import { filtrarPorPotencia } from "../util/filtrarPorPotencia";
 
 export class MotorService {
     private motoresPreDefinidos: Motor[];
@@ -64,7 +65,8 @@ export class MotorService {
         return this.repositorio.listar();
     }
 
-    pesquisarMotoresCustomizados(nome: string): Motor[] {
-        return this.repositorio.pesquisarPorNome(nome);
+    pesquisarMotoresCustomizados(nome: string, minimo?: number, maximo?: number): Motor[] {
+        const motores = this.repositorio.pesquisarPorNome(nome);
+        return filtrarPorPotencia(motores, minimo, maximo);
     }
 }

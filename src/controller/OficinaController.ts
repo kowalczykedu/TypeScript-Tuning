@@ -28,8 +28,32 @@ export class OficinaController {
         return (this.motorSelecionado !== undefined);
     }
 
-    pesquisarMotoresCustomizados(nome: string): Motor[] {
-        return this.service.pesquisarMotoresCustomizados(nome);
+
+    pesquisarMotoresCustomizados(nome: string, minimoDigitado: string, maximoDigitado: string): Motor[] {
+        const minimo = this.converterPotencia(minimoDigitado, "mínima");
+        const maximo = this.converterPotencia(maximoDigitado, "máxima");
+
+        if (minimo !== undefined && maximo !== undefined && minimo > maximo) {
+            throw new EscolhaInvalidaError(
+                "A potência mínima não pode ser maior que a máxima, tente novamente. Sua entrada: ",
+                `${minimoDigitado} e ${maximoDigitado}`
+            );
+        }
+        return this.service.pesquisarMotoresCustomizados(nome, minimo, maximo);
+    }
+
+    private converterPotencia(texto: string, rotulo: string): number | undefined {
+        const textoLimpo = texto.trim().replace(",", ".");
+
+        if (textoLimpo === "") {
+            return undefined;
+        }
+
+        const potencia = Number(textoLimpo);
+        if (!Number.isFinite(potencia) || potencia < 0) {
+            throw new EscolhaInvalidaError(`Potência ${rotulo} inválida, tente novamente. Sua entrada: `, texto);
+        }
+        return potencia;
     }
 
     selecionarMotor(escolha: number): void {

@@ -102,10 +102,19 @@ console.log(cores.RESET);
             return;
         }
 
-        const encontrados = this.controller.pesquisarMotoresCustomizados(nome);
+        console.log();
+        console.log(`${cores.BRANCO_BRILHANTE}${cores.NEGRITO}${cores.ITALICO}Potência mínima em cv ${cores.RESET}${cores.ROXO_SUAVE}(Enter para ignorar)${cores.RESET}`);
+        const minimo = teclado.question(`${cores.ROXO_INTENSO}➜ ${cores.BRANCO_BRILHANTE} ${cores.VERDE_MENTA}`).trim();
+
+        console.log();
+        console.log(`${cores.BRANCO_BRILHANTE}${cores.NEGRITO}${cores.ITALICO}Potência máxima em cv ${cores.RESET}${cores.ROXO_SUAVE}(Enter para ignorar)${cores.RESET}`);
+        const maximo = teclado.question(`${cores.ROXO_INTENSO}➜ ${cores.BRANCO_BRILHANTE} ${cores.VERDE_MENTA}`).trim();
+
+        const encontrados = this.controller.pesquisarMotoresCustomizados(nome, minimo, maximo);
         if (encontrados.length === 0) {
+            const faixa = this.descreverFaixa(minimo, maximo);
             console.log();
-            console.log(`${cores.etiqueta(`${cores.NEGRITO}${cores.ITALICO}Não foi possível achar um motor com o nome "${nome}".`, cores.VERMELHO_SANGUE, cores.BRANCO_BRILHANTE)}`)
+            console.log(`${cores.etiqueta(`${cores.NEGRITO}${cores.ITALICO}Não foi possível achar um motor com o nome "${nome}"${faixa}.`, cores.VERMELHO_SANGUE, cores.BRANCO_BRILHANTE)}`)
             return;
         }
 
@@ -119,6 +128,19 @@ console.log(cores.RESET);
         for (const motor of encontrados) {
             console.log(this.formatador.formatarEstado(motor, slots, motor.getNome()));
         }
+    }
+
+    private descreverFaixa(minimo: string, maximo: string): string {
+        if (minimo !== "" && maximo !== "") {
+            return ` e potência entre ${minimo} e ${maximo} cv`;
+        }
+        if (minimo !== "") {
+            return ` e potência de pelo menos ${minimo} cv`;
+        }
+        if (maximo !== "") {
+            return ` e potência de até ${maximo} cv`;
+        }
+        return "";
     }
 
     private confirmarTroca(): boolean {
